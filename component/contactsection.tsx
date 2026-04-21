@@ -492,7 +492,7 @@ export default function ContactSection() {
 
             {/* ── PILL TAB SWITCHER ── */}
             <div style={{ position: "relative", zIndex: 1, display: "flex", justifyContent: "center", padding: "16px 22px 0", overflowX: "auto" }}>
-              <div style={{
+              <div className="max-sm:ml-20" style={{
                 display: "inline-flex", flexShrink: 0,
                 background: "rgba(255,255,255,0.05)",
                 border: "1px solid rgba(255,255,255,0.1)",

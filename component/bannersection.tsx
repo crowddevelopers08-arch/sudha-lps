@@ -498,10 +498,10 @@ export default function BannerSection() {
 
           {/* ② Paragraph */}
           <p
-            className="banner-paragraph"
+            className="banner-paragraph max-sm:text-black md:text-white"
             style={{
               fontSize: "var(--fs-subtitle)",
-              color: "rgba(255,253,250,0.94)",
+            
               fontWeight: 650,
               lineHeight: 1.42,
               margin: "0 0 28px 0",
