@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model Lead {
+  id             String   @id @default(cuid())
+  name           String
+  phone          String
+  email          String?
+  treatment      String?
+  procedure      String?
+  message        String?
+  city           String?
+  age            String?
+  pincode        String?
+  consent        Boolean  @default(false)
+  source         String?
+  formName       String   @default("Website Leads")
+  status         String   @default("new")
+
+  // Smile Baby specific
+  whatsappNumber    String?
+  womansAgeBracket  String?
+  tryingDuration    String?
+  isWhatsapp        String?
+
+  telecrmSynced  Boolean  @default(false)
+  telecrmId      String?
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
