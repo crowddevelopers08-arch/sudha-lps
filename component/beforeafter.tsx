@@ -84,7 +84,7 @@ export default function BeforeAfterSection() {
                         <img
                           src={study.before}
                           alt={`${study.title} before treatment`}
-                          className="h-[220px] w-full object-cover sm:h-[280px] lg:h-[320px]"
+                          className="h-[270px] w-full object-cover sm:h-[300px] lg:h-[320px]"
                         />
                         <div className="absolute left-3 top-3 rounded-full bg-[#241f21]/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white sm:left-4 sm:top-4 sm:px-4 sm:py-2 sm:text-[11px]">
                           Before
@@ -97,7 +97,7 @@ export default function BeforeAfterSection() {
                         <img
                           src={study.after}
                           alt={`${study.title} after treatment`}
-                          className="h-[220px] w-full object-cover sm:h-[280px] lg:h-[320px]"
+                          className="h-[270px] w-full object-cover sm:h-[280px] lg:h-[320px]"
                         />
                         <div className="absolute left-3 top-3 rounded-full bg-[#5e9a71]/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white sm:left-4 sm:top-4 sm:px-4 sm:py-2 sm:text-[11px]">
                           After

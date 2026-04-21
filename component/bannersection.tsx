@@ -547,10 +547,9 @@ export default function BannerSection() {
                     <span style={{ transform: "rotate(-45deg)", lineHeight: 1 }}>{b.icon}</span>
                   </span>
                   <span
-                    className="banner-bullet-text"
+                    className="banner-bullet-text max-sm:text-black md:text-white"
                     style={{
                       fontSize: "var(--fs-body)",
-                      color: "rgba(255,253,250,0.94)",
                       fontWeight: 750,
                       letterSpacing: "0.01em",
                       lineHeight: 1.35,
@@ -595,7 +594,7 @@ export default function BannerSection() {
                   ))}
                 </div>
                 <span className="banner-rating-text" style={{ fontSize: "var(--fs-body)", color: "#5b5558", fontWeight: 700 }}>
-                  4.7 · 200+ Google Reviews
+                  4.7 Google
                 </span>
               </div>
             </div>
