@@ -25,7 +25,7 @@ const SKIN_CONCERN_STAGE_IMAGES: Record<string, string[]> = {
   "Pigmentation / Dark Spots": ["/shakura-pigmentation-stages.jpeg",   "/shakura-pigmentation-stages1.jpeg",   "/shakura-pigmentation-stages2.jpeg",   "/shakura-pigmentation-stages3.jpeg",   "/shakura-pigmentation-stages4.png"],
   "Anti-Aging / Fine Lines":   ["/wrikingle.png",  "/wrikingle1.png",  "/wrikingle2.png",  "/wrikingle3.png",  "/wrikingle4.png"],
   "Laser Hair Removal":   ["/laser7.png",  "/laser6.jpeg",  "/laser8.jpeg",  "/laser4.jpeg",  "/laser10.jpeg"],
-  "Other":           ["/laser1.jpeg",  "/laser2.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/laser9.jpeg"],
+  "Other":           ["/laser1.jpeg",  "/laser2.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/laser12.jpeg"],
 };
 const LASER_TREATMENT_NAMES = [
   "Leg Laser",
@@ -38,8 +38,8 @@ const OTHER_TREATMENT_NAMES = [
   "Psoriasis",
   "Vitligo",
   "Acne scars",
-  "Skin Toning",
-  "Upper Lip Hair Removal",
+  "Skin Sagging",
+  "Melasma",
 ];
 const SAGE      = "#5e9a71";
 const SAGE_DEEP = "#4f8562";
@@ -328,7 +328,7 @@ function HairForm({ values, onChange }: { values: FormFields; onChange: (k: keyo
 /* ── Skin Form ── */
 function SkinForm({ values, onChange }: { values: FormFields; onChange: (k: keyof FormFields, v: any) => void }) {
   const stageImages = (values.concern && SKIN_CONCERN_STAGE_IMAGES[values.concern]) || SKIN_STAGE_IMAGES;
-  const isLaserConcern = values.concern === "Laser Treatment";
+  const isLaserConcern = values.concern === "Laser Hair Removal";
   const isOtherConcern = values.concern === "Other";
   const treatmentLabels = isLaserConcern ? LASER_TREATMENT_NAMES : isOtherConcern ? OTHER_TREATMENT_NAMES : undefined;
   return (
