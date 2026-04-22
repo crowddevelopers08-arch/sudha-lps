@@ -24,8 +24,23 @@ const SKIN_CONCERN_STAGE_IMAGES: Record<string, string[]> = {
   "Acne / Breakouts":          ["/images1.png",  "/images2.png",  "/images3.png",  "/images4.png",  "/images5.png"],
   "Pigmentation / Dark Spots": ["/shakura-pigmentation-stages.jpeg",   "/shakura-pigmentation-stages1.jpeg",   "/shakura-pigmentation-stages2.jpeg",   "/shakura-pigmentation-stages3.jpeg",   "/shakura-pigmentation-stages4.png"],
   "Anti-Aging / Fine Lines":   ["/wrikingle.png",  "/wrikingle1.png",  "/wrikingle2.png",  "/wrikingle3.png",  "/wrikingle4.png"],
-  "Other":                      SKIN_STAGE_IMAGES,
+  "Laser Treatment":   ["/laser1.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/laser7.png",  "/laser10.jpeg"],
+  "Other":           ["/laser6.jpeg",  "/laser4.jpeg",  "/lasers.png",  "/laser2.jpeg",  "/laser9.jpeg"],
 };
+const LASER_TREATMENT_NAMES = [
+  "Laser Skin Rejuvenation",
+  "Laser Toning",
+  "Laser Scar Reduction",
+  "Carbon Laser Facial",
+  "Laser Pigmentation Care",
+];
+const OTHER_TREATMENT_NAMES = [
+  "Laser Hair Reduction",
+  "Chin Hair Removal",
+  "Acne scars",
+  "Skin Toning",
+  "Upper Lip Hair Removal",
+];
 const SAGE      = "#5e9a71";
 const SAGE_DEEP = "#4f8562";
 const ROSE      = "#c86b9b";
@@ -82,7 +97,7 @@ function MiniFace({ stage, selected }: { stage: number; selected: boolean }) {
 
 /* ── Stage Picker ── */
 function StagePicker({
-  label, stages, selected, onSelect, accent, accentDp, imagePaths, imageAltPrefix,
+  label, stages, selected, onSelect, accent, accentDp, imagePaths, imageAltPrefix, imageLabels,
 }: {
   label: string;
   stages: { stage: number; desc: string }[];
@@ -91,6 +106,7 @@ function StagePicker({
   accent: string; accentDp: string;
   imagePaths: string[];
   imageAltPrefix: string;
+  imageLabels?: string[];
 }) {
   const isHairAccent = accent === SAGE;
   return (
@@ -106,6 +122,7 @@ function StagePicker({
       <div style={{ display: "flex", gap: "8px", flexWrap: "nowrap", overflowX: "auto", paddingBottom: "4px" }}>
         {stages.map(({ stage, desc }) => {
           const sel = selected === stage;
+          const imageLabel = imageLabels?.[stage - 1];
           return (
             <button
               key={stage}
@@ -169,16 +186,18 @@ function StagePicker({
                 color: sel ? accent : "rgba(255,253,250,0.7)", lineHeight: 1,
                 transition: "color 0.22s",
               }}>
-                Stage {stage}
+                {imageLabel ?? `Stage ${stage}`}
               </p>
-              <p style={{
-                margin: 0, fontSize: "9px",
-                color: sel ? "rgba(255,253,250,0.65)" : "rgba(255,253,250,0.3)",
-                lineHeight: 1.3, textAlign: "center",
-                transition: "color 0.22s",
-              }}>
-                {desc}
-              </p>
+              {!imageLabel && (
+                <p style={{
+                  margin: 0, fontSize: "9px",
+                  color: sel ? "rgba(255,253,250,0.65)" : "rgba(255,253,250,0.3)",
+                  lineHeight: 1.3, textAlign: "center",
+                  transition: "color 0.22s",
+                }}>
+                  {desc}
+                </p>
+              )}
             </button>
           );
         })}
@@ -309,6 +328,9 @@ function HairForm({ values, onChange }: { values: FormFields; onChange: (k: keyo
 /* ── Skin Form ── */
 function SkinForm({ values, onChange }: { values: FormFields; onChange: (k: keyof FormFields, v: any) => void }) {
   const stageImages = (values.concern && SKIN_CONCERN_STAGE_IMAGES[values.concern]) || SKIN_STAGE_IMAGES;
+  const isLaserConcern = values.concern === "Laser Treatment";
+  const isOtherConcern = values.concern === "Other";
+  const treatmentLabels = isLaserConcern ? LASER_TREATMENT_NAMES : isOtherConcern ? OTHER_TREATMENT_NAMES : undefined;
   return (
     <div className="contact-form-stack" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
       <div className="contact-field-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: "10px" }}>
@@ -319,7 +341,7 @@ function SkinForm({ values, onChange }: { values: FormFields; onChange: (k: keyo
         <Field label="Email Address" placeholder="Enter your email" accent={ROSE} value={values.email}   onChange={v => onChange("email", v)} />
         <SelectField label="Skin Concern" accent={ROSE} value={values.concern} onChange={v => { onChange("concern", v); onChange("stage", null); }} options={[
           "Acne / Breakouts", "Pigmentation / Dark Spots",
-          "Anti-Aging / Fine Lines", "Other",
+          "Anti-Aging / Fine Lines", "Laser Treatment", "Other",
         ]} />
       </div>
       <StagePicker
@@ -330,6 +352,7 @@ function SkinForm({ values, onChange }: { values: FormFields; onChange: (k: keyo
         accent={ROSE} accentDp={ROSE_DEEP}
         imagePaths={stageImages}
         imageAltPrefix="Skin concern"
+        imageLabels={treatmentLabels}
       />
       <div className="contact-message">
         <Field label="Message" placeholder="Describe your skin concern in detail" as="textarea" accent={ROSE} value={values.message} onChange={v => onChange("message", v)} />
