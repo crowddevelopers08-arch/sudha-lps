@@ -32,24 +32,6 @@ const DOCTORS = [
     exp: "8+ Yrs",
     featured: false,
   },
-  {
-    name: "Dr. Lopamudra Pradhan",
-    role: "Consultant",
-    specialty: "Pigmentation Specialist",
-    qualifications: "MBBS, MS-OBG, FRM, MRCOG",
-    image: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=400&q=80",
-    exp: "9+ Yrs",
-    featured: false,
-  },
-  {
-    name: "Dr. Samrashni G",
-    role: "Consultant",
-    specialty: "Carbon Laser & Skin",
-    qualifications: "MBBS, DGO, DNB, FRM",
-    image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=400&q=80",
-    exp: "7+ Yrs",
-    featured: false,
-  },
 ];
 
 function FeaturedCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
@@ -208,7 +190,7 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
       }}
     >
       {/* Image top half */}
-      <div style={{ position: "relative", height: "clamp(160px, 22vw, 220px)", overflow: "hidden", flexShrink: 0 }}>
+      <div style={{ position: "relative", height: "clamp(210px, 28vw, 300px)", overflow: "hidden", flexShrink: 0 }}>
         <img
           src={doctor.image}
           alt={doctor.name}
@@ -325,7 +307,7 @@ function MobileCarousel() {
               transition: "opacity 0.38s, transform 0.38s",
             }}>
               <div style={{ borderRadius: "20px", overflow: "hidden", background: "#1a1416" }}>
-                <div style={{ height: "240px", position: "relative", overflow: "hidden" }}>
+                <div style={{ height: "300px", position: "relative", overflow: "hidden" }}>
                   <img src={doc.image} alt={doc.name} style={{
                     width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
                     opacity: 1,
@@ -405,10 +387,12 @@ export default function Specialists() {
         /* ── Grid (shown on tablet + desktop) ── */
         .specialists-grid {
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 14px;
-          max-width: 1240px;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+          max-width: 920px;
           margin: 0 auto;
+          align-items: stretch;
+          justify-content: center;
         }
 
         /* ── Carousel (mobile only) ── */
@@ -424,17 +408,6 @@ export default function Specialists() {
             gap: 14px;
             max-width: 720px;
           }
-          /* last 2 cards span to centre the row */
-          .specialists-grid > :nth-child(4) {
-            grid-column: 1 / 2;
-            margin-left: auto;
-            width: 100%;
-          }
-          .specialists-grid > :nth-child(5) {
-            grid-column: 2 / 3;
-            margin-right: auto;
-            width: 100%;
-          }
         }
 
         /* ── Small tablet: 2 columns ── */
@@ -447,13 +420,7 @@ export default function Specialists() {
             gap: 12px;
             max-width: 480px;
           }
-          .specialists-grid > :nth-child(4),
-          .specialists-grid > :nth-child(5) {
-            grid-column: auto;
-            margin: 0;
-          }
-          /* 5th card centres itself */
-          .specialists-grid > :nth-child(5) {
+          .specialists-grid > :nth-child(3) {
             grid-column: 1 / -1;
             max-width: 234px;
             margin: 0 auto;
