@@ -6,29 +6,29 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 
 const DOCTORS = [
   {
-    name: "Dr. Chathra S K",
+    name: "Dr.Ravi vadrevu",
     role: "Clinical Director",
     specialty: "Skin & Laser Expert",
-    qualifications: "MBBS, MS-OBG, FRM, DRM",
-    image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=600&q=85",
+    qualifications: "MD.DD",
+    image: "/Dr-Ravi-Vadrevu.png",
     exp: "12+ Yrs",
     featured: true,
   },
   {
-    name: "Dr. Maheshwari M",
+    name: "Dr.VKG Sudha",
     role: "Senior Consultant",
     specialty: "Hair Restoration",
-    qualifications: "MBBS, MS(OBG), FRM, DRM",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80",
+    qualifications: "MD,DVL",
+    image: "/sudha.jpeg",
     exp: "10+ Yrs",
     featured: false,
   },
   {
-    name: "Dr. Chandana A",
+    name: "Dr.K.Chandrakala",
     role: "Consultant",
     specialty: "Acne & Scar Care",
-    qualifications: "MBBS, MS-OBG, FRM, DRM",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80",
+    qualifications: "MBBS,DD",
+    image: "/dr-chandrakala.jpeg",
     exp: "8+ Yrs",
     featured: false,
   },
@@ -83,7 +83,8 @@ function FeaturedCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
           height: "100%",
           objectFit: "cover",
           objectPosition: "center top",
-          filter: hovered ? "brightness(0.72) saturate(1.05)" : "brightness(0.6) saturate(0.9)",
+          opacity: 1,
+          filter: hovered ? "brightness(0.96)" : "brightness(0.9)",
           transition: "filter 0.5s ease, transform 0.6s cubic-bezier(0.22,1,0.36,1)",
           transform: hovered ? "scale(1.05)" : "scale(1)",
         }}
@@ -94,7 +95,7 @@ function FeaturedCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "linear-gradient(180deg, transparent 35%, rgba(14,10,12,0.72) 65%, rgba(14,10,12,0.97) 100%)",
+        background: "linear-gradient(180deg, transparent 58%, rgba(14,10,12,0.48) 78%, rgba(14,10,12,0.9) 100%)",
         zIndex: 1,
       }} />
 
@@ -102,7 +103,7 @@ function FeaturedCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
       <div aria-hidden style={{
         position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
         backgroundImage: GRAIN, backgroundSize: "200px 200px",
-        opacity: 0.1, mixBlendMode: "overlay",
+        opacity: 0.04, mixBlendMode: "overlay",
       }} />
 
       {/* Glow border on hover */}
@@ -213,7 +214,8 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
           alt={doctor.name}
           style={{
             width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
-            filter: hovered ? "brightness(0.78) saturate(1.1)" : "brightness(0.65) saturate(0.85)",
+            opacity: 1,
+            filter: hovered ? "brightness(0.98)" : "brightness(0.92)",
             transition: "filter 0.4s, transform 0.5s cubic-bezier(0.22,1,0.36,1)",
             transform: hovered ? "scale(1.07)" : "scale(1)",
           }}
@@ -221,7 +223,7 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
         />
         <div style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(180deg, transparent 50%, #1a1416 100%)",
+          background: "linear-gradient(180deg, transparent 68%, rgba(26,20,22,0.72) 100%)",
         }} />
         {/* Exp pill */}
         <div style={{
@@ -326,9 +328,10 @@ function MobileCarousel() {
                 <div style={{ height: "240px", position: "relative", overflow: "hidden" }}>
                   <img src={doc.image} alt={doc.name} style={{
                     width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top",
-                    filter: "brightness(0.7) saturate(0.9)",
+                    opacity: 1,
+                    filter: "brightness(0.92)",
                   }} onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 50%, #1a1416 100%)" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 68%, rgba(26,20,22,0.72) 100%)" }} />
                   <div style={{
                     position: "absolute", top: "12px", right: "12px",
                     background: "rgba(20,14,17,0.75)", backdropFilter: "blur(10px)",
