@@ -695,7 +695,7 @@ export default function BannerSection() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(to right, rgba(246,242,236,0.42) 0%, transparent 28%)",
+                // background: "linear-gradient(to right, rgba(246,242,236,0.42) 0%, transparent 28%)",
                 zIndex: 2,
                 pointerEvents: "none",
               }}
@@ -707,7 +707,7 @@ export default function BannerSection() {
                 left: 0,
                 right: 0,
                 height: "120px",
-                background: "linear-gradient(to top, rgba(246,242,236,0.9) 0%, transparent 100%)",
+                // background: "linear-gradient(to top, rgba(246,242,236,0.9) 0%, transparent 100%)",
                 zIndex: 2,
                 pointerEvents: "none",
               }}
@@ -716,7 +716,7 @@ export default function BannerSection() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "radial-gradient(ellipse at 55% 45%, transparent 48%, rgba(36,31,33,0.18) 100%)",
+                // background: "radial-gradient(ellipse at 55% 45%, transparent 48%, rgba(36,31,33,0.18) 100%)",
                 zIndex: 2,
                 pointerEvents: "none",
               }}
@@ -734,45 +734,6 @@ export default function BannerSection() {
                 pointerEvents: "none",
               }}
             />
-
-            {/* Dynamic label (changes with active image) */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "18px",
-                left: "20px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "4px",
-                zIndex: 5,
-              }}
-            >
-              <span style={{ display: "block", width: "32px", height: "2.5px", background: "#c86b9b", marginBottom: "4px" }} />
-              <span
-                style={{
-                  fontSize: "var(--fs-eyebrow)",
-                  fontWeight: 600,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "rgba(94,154,113,0.92)",
-                  transition: "opacity 0.4s ease",
-                }}
-              >
-                {IMAGES[activeImg].label}
-              </span>
-              <span
-                style={{
-                  fontSize: "10.5px",
-                  fontWeight: 500,
-                  letterSpacing: "0.02em",
-                  textTransform: "uppercase",
-                  color: "rgba(91,85,88,0.62)",
-                  transition: "opacity 0.4s ease",
-                }}
-              >
-                {IMAGES[activeImg].sublabel}
-              </span>
-            </div>
 
             {/* Slide indicator dots */}
             <div

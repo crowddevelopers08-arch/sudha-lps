@@ -97,9 +97,9 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
               <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
-          <div className="relative h-14 w-40 sm:w-44 lg:h-26 lg:w-48">
+          <div className="relative h-12 w-20 sm:w-44 lg:h-20 lg:w-38">
             <Image
-              src="/logos.JPG"
+              src="/logos.jpg"
               alt="Sudha Skin Hair Aesthetics logo"
               fill
               className="object-contain object-left"
@@ -112,7 +112,7 @@ export default function Footer() {
             <h3
               style={{
                 margin: "0 0 10px 0",
-                fontSize: "var(--fs-subtitle)",
+                fontSize: "var(--fs-body)",
                 lineHeight: 1.2,
                 color: "#fffdfa",
                 fontWeight: 900,

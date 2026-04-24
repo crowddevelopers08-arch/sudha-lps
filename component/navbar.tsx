@@ -66,12 +66,21 @@ export default function Navbar() {
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#c86b9b] to-transparent opacity-60"
       />
 
-      <div className="relative mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-4 py-2 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
-          <div className="relative h-18 w-25 sm:w-44 lg:h-26 lg:w-48">
+          <div className="relative h-14 w-18 sm:w-44 lg:h-26 lg:w-48">
             <Image
               src="/logos.png"
               alt="Sudha Skin Hair Aesthetics logo"
+              fill
+              className="object-contain max-sm:object-cover max-sm:object-left"
+              priority
+            />
+          </div>
+          <div className="relative h-13 w-43 sm:w-44 lg:h-26 lg:w-48">
+            <Image
+              src="/logos1.png"
+              alt="Sudha Skin Hair Aesthetics secondary logo"
               fill
               className="object-contain max-sm:object-cover max-sm:object-left"
               priority
@@ -132,7 +141,7 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((open) => !open)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#5e9a71]/20 bg-white/85 text-[#3f7455] shadow-[0_8px_24px_rgba(63,116,85,0.12)] lg:hidden"
+          className="flex-none self-center inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#5e9a71]/20 bg-white/85 text-[#3f7455] shadow-[0_8px_24px_rgba(63,116,85,0.12)] lg:hidden"
         >
           <span className="relative h-4 w-5">
             <span

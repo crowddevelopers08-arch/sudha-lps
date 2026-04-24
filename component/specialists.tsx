@@ -12,6 +12,7 @@ const DOCTORS = [
     qualifications: "Clinical Director",
     image: "/Dr-Ravi-Vadrevu.png",
     exp: "40+ Yrs",
+    experience: "40+ Years of Experience",
     featured: true,
   },
   {
@@ -21,6 +22,7 @@ const DOCTORS = [
     qualifications: "Senior Consultant",
     image: "/sudha.jpeg",
     exp: "10+ Yrs",
+    experience: "10+ Years of Experience",
     featured: false,
   },
   {
@@ -30,6 +32,7 @@ const DOCTORS = [
     qualifications: "Consultant",
     image: "/dr-chandrakala.jpeg",
     exp: "25+ Yrs",
+    experience: "25+ Years of Experience",
     featured: false,
   },
 ];
@@ -237,9 +240,15 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
         </p>
         <p style={{
           fontSize: "11.5px", color: "rgba(255,253,250,0.5)",
-          margin: "0 0 10px 0", fontWeight: 500,
+          margin: "0 0 8px 0", fontWeight: 500,
         }}>
           {doctor.role}
+        </p>
+        <p style={{
+          fontSize: "11px", color: "rgba(255,253,250,0.38)",
+          margin: "0 0 10px 0", fontWeight: 400, lineHeight: 1.55,
+        }}>
+          {doctor.experience}
         </p>
         {/* Divider */}
         <div style={{
@@ -328,7 +337,8 @@ function MobileCarousel() {
                     {doc.specialty}
                   </div>
                   <p style={{ fontSize: "var(--fs-subtitle)", fontWeight: 800, color: "#fffdfa", margin: "0 0 4px 0" }}>{doc.name}</p>
-                  <p style={{ fontSize: "var(--fs-small)", color: "rgba(255,253,250,0.5)", margin: "0 0 10px 0" }}>{doc.role}</p>
+                  <p style={{ fontSize: "var(--fs-small)", color: "rgba(255,253,250,0.5)", margin: "0 0 6px 0" }}>{doc.role}</p>
+                  <p style={{ fontSize: "11px", color: "rgba(255,253,250,0.38)", margin: "0 0 10px 0", lineHeight: 1.5 }}>{doc.experience}</p>
                   <a href="#contact" style={{
                     display: "inline-flex", alignItems: "center", gap: "8px",
                     background: "rgba(94,154,113,0.9)", color: "#fff",
@@ -410,27 +420,27 @@ export default function Specialists() {
           }
         }
 
-        /* ── Small tablet: 2 columns ── */
+        /* ── Small tablet: 1 column ── */
         @media (max-width: 640px) {
           .specialists-section {
-            padding: 32px 16px 40px !important;
+            padding: 28px 16px 36px !important;
           }
           .specialists-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            max-width: 480px;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            max-width: 400px;
           }
           .specialists-grid > :nth-child(3) {
-            grid-column: 1 / -1;
-            max-width: 234px;
-            margin: 0 auto;
+            grid-column: unset;
+            max-width: unset;
+            margin: 0;
           }
         }
 
         /* ── Mobile: carousel only ── */
-        @media (max-width: 420px) {
+        @media (max-width: 426px) {
           .specialists-section {
-            padding: 28px 10px 34px !important;
+            padding: 24px 10px 32px !important;
           }
           .specialists-grid     { display: none; }
           .specialists-carousel { display: block; }
