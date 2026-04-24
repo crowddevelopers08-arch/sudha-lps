@@ -25,7 +25,7 @@ const SKIN_CONCERN_STAGE_IMAGES: Record<string, string[]> = {
   "Pigmentation / Dark Spots": ["/shakura-pigmentation-stages.jpeg",   "/shakura-pigmentation-stages1.jpeg",   "/shakura-pigmentation-stages2.jpeg",   "/shakura-pigmentation-stages3.jpeg",   "/shakura-pigmentation-stages4.png"],
   "Anti-Aging / Fine Lines":   ["/wrikingle.png",  "/wrikingle1.png",  "/wrikingle2.png",  "/wrikingle3.png",  "/wrikingle4.png"],
   "Laser Hair Removal":   ["/laser7.png",  "/laser6.jpeg",  "/laser8.jpeg",  "/laser4.jpeg",  "/laser10.jpeg"],
-  "Other":           ["/laser1.jpeg",  "/laser2.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/laser12.jpeg"],
+  "Other":           ["/laser1.jpeg",  "/laser2.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/tatto.jpeg"],
 };
 const LASER_TREATMENT_NAMES = [
   "Leg Laser",
@@ -39,7 +39,7 @@ const OTHER_TREATMENT_NAMES = [
   "Vitligo",
   "Acne scars",
   "Skin Sagging",
-  "Melasma",
+  "Tatto Removal",
 ];
 const SAGE      = "#5e9a71";
 const SAGE_DEEP = "#4f8562";

@@ -68,12 +68,12 @@ export default function Navbar() {
 
       <div className="relative mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
-          <div className="relative h-14 w-40 sm:w-44 lg:h-16 lg:w-48">
+          <div className="relative h-18 w-25 sm:w-44 lg:h-26 lg:w-48">
             <Image
-              src="/logos.JPG"
+              src="/logos.png"
               alt="Sudha Skin Hair Aesthetics logo"
               fill
-              className="object-contain"
+              className="object-contain max-sm:object-cover max-sm:object-left"
               priority
             />
           </div>

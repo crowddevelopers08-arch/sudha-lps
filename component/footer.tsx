@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E")`;
@@ -95,18 +96,17 @@ export default function Footer() {
         >
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-              <span style={{ display: "block", width: "38px", height: "3px", background: "#5e9a71" }} />
-              <span
-                style={{
-                  fontSize: "var(--fs-eyebrow)",
-                  letterSpacing: "0.24em",
-                  textTransform: "uppercase",
-                  color: "#c86b9b",
-                  fontWeight: 700,
-                }}
-              >
-                Sudha Aesthetics
-              </span>
+              <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
+          <div className="relative h-14 w-40 sm:w-44 lg:h-26 lg:w-48">
+            <Image
+              src="/logos.JPG"
+              alt="Sudha Skin Hair Aesthetics logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
+        </Link>
             </div>
 
             <h3
