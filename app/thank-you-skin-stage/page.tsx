@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/component/footer";
+import GoogleAdsConversion from "@/component/google-ads-conversion";
 import ThankYou from "@/component/thankyou";
 import Navbared from "@/component/thank-navbar";
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function ThankYouSkinStagePage() {
   return (
     <>
+      <GoogleAdsConversion />
       <Navbared />
       <ThankYou
         eyebrow="Skin Consultation Received"
