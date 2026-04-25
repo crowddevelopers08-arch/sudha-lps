@@ -99,7 +99,7 @@ export default function Footer() {
               <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
           <div className="relative h-12 w-20 sm:w-44 lg:h-20 lg:w-38">
             <Image
-              src="/logos.jpg"
+              src="/logos.JPG"
               alt="Sudha Skin Hair Aesthetics logo"
               fill
               className="object-contain object-left"
