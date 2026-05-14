@@ -41,11 +41,11 @@ const Review = () => {
             <h4 className="text-2xl font-black text-[#241f21] sm:text-6xl mb-4">
               Click & Review
             </h4>
-            <p className=" mb-4 max-w-lg text-md leading-7 text-[#5b5558] sm:text-lg">
+            <div className="mb-4 max-w-lg text-lg leading-8 text-[#5b5558] sm:text-xl">
               We'd love to hear your feedback!<br />
               Please click any one of the buttons below to share your review.<br />
               A short review of 4 to 5 lines would be greatly appreciated.
-            </p>
+            </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
