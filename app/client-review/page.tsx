@@ -33,15 +33,15 @@ const Review = () => {
             </div>
           </div>
 
-          <div className="mb-7 text-center sm:mb-5">
+          <div className="mb-9 text-center sm:mb-5">
             <div className="mx-auto mb-3 h-1 w-12 bg-[#c86b9b]" />
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#5e9a71]">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#5e9a71]">
               Sudha Aesthetics
             </p>
-            <h2 className="text-2xl font-black leading-tight text-[#241f21] sm:text-4xl">
+            <h4 className="text-2xl font-black text-[#241f21] sm:text-6xl mb-4">
               Click & Review
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-sm leading-7 text-[#5b5558] sm:text-base">
+            </h4>
+            <p className=" mb-4 max-w-lg text-md leading-7 text-[#5b5558] sm:text-lg">
               We'd love to hear your feedback!<br />
               Please click any one of the buttons below to share your review.<br />
               A short review of 4 to 5 lines would be greatly appreciated.

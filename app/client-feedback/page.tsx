@@ -110,15 +110,15 @@ const ClientFeedback = () => {
               </div>
             </div>
 
-            <div className="mb-6 text-center sm:mb-8">
+            <div className="mb-9 text-center sm:mb-5">
               <div className="mx-auto mb-3 h-1 w-12 bg-[#c86b9b]" />
-              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#5e9a71]">
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#5e9a71]">
                 Client Feedback
               </p>
-              <h2 className="text-2xl font-black leading-tight text-[#241f21] sm:text-4xl">
+              <h4 className="text-2xl font-black text-[#241f21] sm:text-6xl mb-4">
                 Help Us Improve
-              </h2>
-              <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-[#5b5558] sm:text-base">
+              </h4>
+              <p className="mx-auto mb-4 max-w-lg text-sm leading-7 text-[#5b5558] sm:text-base">
                 Tell us what did not meet your expectations. We genuinely value your feedback and will work on making things better.
               </p>
             </div>
