@@ -98,7 +98,7 @@ export default function HolisticApproach() {
           background: rgba(255, 253, 250, 0.95);
           border: 0.5px solid rgba(91, 85, 88, 0.18);
           padding: 9px 14px;
-          font-size: 13px;
+          font-size: 16px;
           font-weight: 600;
           color: #241f21;
           white-space: nowrap;
@@ -112,7 +112,7 @@ export default function HolisticApproach() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 700;
           color: #fff;
           flex-shrink: 0;
@@ -202,12 +202,12 @@ export default function HolisticApproach() {
           .holistic-header p {
             max-width: 300px;
             margin: 0 auto !important;
-            font-size: 14px !important;
+            font-size: 16px !important;
             line-height: 1.5 !important;
           }
           .holistic-mobile-center {
-            width: 94px !important;
-            height: 94px !important;
+            width: 125px !important;
+            height: 125px !important;
             margin-bottom: 18px !important;
             outline-width: 6px !important;
           }
@@ -223,13 +223,13 @@ export default function HolisticApproach() {
             gap: 8px !important;
           }
           .holistic-mobile-num {
-            width: 30px !important;
-            height: 30px !important;
-            font-size: 10px !important;
+            width: 34px !important;
+            height: 34px !important;
+            font-size: 13px !important;
           }
           .holistic-mobile-label {
-            font-size: 11px !important;
-            line-height: 1.35 !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
           }
           .holistic-cta {
             margin-top: 24px !important;
@@ -310,13 +310,13 @@ export default function HolisticApproach() {
               {/* Centre badge */}
               <div className="holistic-mobile-center">
                 <span style={{
-                  fontSize: "12px", fontWeight: 800, color: SAGE,
+                  fontSize: "14px", fontWeight: 800, color: SAGE,
                   letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.3,
                 }}>
                   Holistic<br />Approach
                 </span>
                 <span style={{
-                  fontSize: "9px", letterSpacing: "0.15em",
+                  fontSize: "11px", letterSpacing: "0.15em",
                   textTransform: "uppercase", color: ROSE_DEEP, marginTop: "4px",
                   fontWeight: 700,
                 }}>
@@ -395,13 +395,13 @@ export default function HolisticApproach() {
                 textAlign: "center", padding: "16px", zIndex: 20,
               }}>
                 <span style={{
-                  fontSize: "13px", fontWeight: 800, color: SAGE,
+                  fontSize: "16px", fontWeight: 800, color: SAGE,
                   letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.3,
                 }}>
                   Holistic<br />Approach
                 </span>
                 <span style={{
-                  fontSize: "10px", letterSpacing: "0.15em",
+                  fontSize: "13px", letterSpacing: "0.15em",
                   textTransform: "uppercase", color: ROSE_DEEP, marginTop: "5px",
                   fontWeight: 700,
                 }}>
@@ -451,8 +451,8 @@ export default function HolisticApproach() {
                 display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: btnHover ? "#b72c78" : "transparent",
-              color: btnHover ? "#ffffff" : "#5e9a71",
+              background: btnHover ? "#b72c78" : "#5e9a71",
+              color: "#ffffff",
               border: "2.5px solid #5e9a71",
               borderRadius: 0,
               padding: "10px 24px",

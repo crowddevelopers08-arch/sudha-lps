@@ -69,8 +69,8 @@ export default function Navbared() {
           onMouseEnter={() => setBtnHover(true)}
           onMouseLeave={() => setBtnHover(false)}
           style={{
-            background: btnHover ? "#b72c78" : "transparent",
-            color: btnHover ? "#ffffff" : "#5e9a71",
+            background: btnHover ? "#b72c78" : "#5e9a71",
+            color: "#ffffff",
             border: "2.5px solid #5e9a71",
             padding: "10px 18px",
             fontSize: "11px",

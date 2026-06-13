@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E")`;
 
@@ -224,11 +225,11 @@ const SKIN_STAGE_DATA = [
 
 const inputBase: React.CSSProperties = {
   width: "100%",
-  border: "1px solid rgba(255,255,255,0.1)",
-  background: "rgba(255,255,255,0.06)",
+  border: "1px solid rgba(0,0,0,0.13)",
+  background: "rgba(255,255,255,0.92)",
   padding: "11px 14px",
   fontSize: "var(--fs-body)",
-  color: "#fffdfa",
+  color: "#1c1518",
   outline: "none",
   boxSizing: "border-box",
   borderRadius: "8px",
@@ -277,8 +278,8 @@ function SelectField({ label, options, accent = SAGE, value, onChange }: {
           WebkitAppearance: "none",
           paddingRight: "38px", cursor: "pointer",
         }}>
-          <option value="" disabled style={{ background: "#1c1518", color: "#fffdfa" }}>Select an option</option>
-          {options.map(o => <option key={o} value={o} style={{ background: "#1c1518", color: "#fffdfa" }}>{o}</option>)}
+          <option value="" disabled style={{ background: "#ffffff", color: "#1c1518" }}>Select an option</option>
+          {options.map(o => <option key={o} value={o} style={{ background: "#ffffff", color: "#1c1518" }}>{o}</option>)}
         </select>
         <svg style={{ position: "absolute", right: "14px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }}
           width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -365,6 +366,7 @@ function SkinForm({ values, onChange }: { values: FormFields; onChange: (k: keyo
 const EMPTY_FORM: FormFields = { name: "", phone: "", email: "", concern: "", stage: null, message: "" };
 
 export default function ContactSection() {
+  const router = useRouter();
   const [formType, setFormType] = useState<"hair" | "skin">("hair");
   const [btnHover, setBtnHover] = useState(false);
   const [fields, setFields] = useState<FormFields>(EMPTY_FORM);
@@ -405,6 +407,7 @@ export default function ContactSection() {
           phone: fields.phone.trim(),
           email: fields.email.trim() || undefined,
           treatment: fields.concern || undefined,
+          concern: fields.concern || undefined,
           message: [fields.message, fields.stage ? `Selected Stage: ${fields.stage}` : ""].filter(Boolean).join(" | ") || undefined,
           source: "Website",
           formName: isHair ? "hair consultation" : "skin consultation",
@@ -412,7 +415,8 @@ export default function ContactSection() {
         }),
       });
       const data = await res.json();
-      if (data.success) { window.location.href = isHair ? "/thank-you-hair" : "/thank-you-skin"; }
+      console.log("📋 Lead API response:", JSON.stringify(data, null, 2));
+      if (data.success) { router.push(isHair ? "/thank-you-hair" : "/thank-you-skin"); }
       else setStatus("error");
     } catch { setStatus("error"); }
     finally { setSubmitting(false); }
@@ -467,10 +471,8 @@ export default function ContactSection() {
             <span style={{ display: "block", width: "36px", height: "1.5px", background: ROSE }} />
           </div>
           <h2 style={{
-            fontSize: "var(--fs-title)", fontWeight: 900,
+            fontSize: "var(--fs-title)", fontWeight: 900,color: "#fffdfa",
             margin: "0 0 10px 0", letterSpacing: "-0.6px", lineHeight: 1.1,
-            background: "linear-gradient(135deg, #fffdfa 30%, #c86b9b 65%, #5e9a71 100%)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
           }}>
             Book Your Consultation
           </h2>
@@ -571,23 +573,23 @@ export default function ContactSection() {
                 flexWrap: "wrap", marginTop: "16px", paddingTop: "16px",
                 borderTop: "1px solid rgba(255,255,255,0.07)",
               }}>
-                <p style={{ margin: 0, fontSize: "var(--fs-small)", lineHeight: 1.6, color: "rgba(255,253,250,0.3)", maxWidth: "300px" }}>
+                <p style={{ margin: 0, fontSize: "16px", lineHeight: 1.6, color: "rgba(255,253,250,0.77)", maxWidth: "300px" }}>
                   Our team will contact you to confirm a convenient consultation slot.
                 </p>
                 <button
                   type="button" onClick={handleSubmit} disabled={submitting}
                   onMouseEnter={() => setBtnHover(true)} onMouseLeave={() => setBtnHover(false)}
                   style={{
-                    background: btnHover && !submitting ? `linear-gradient(135deg, ${accentDp}, ${accent})` : "transparent",
-                    color: btnHover && !submitting ? "#ffffff" : accent,
-                    border: `2px solid ${btnHover && !submitting ? accent : "rgba(255,255,255,0.2)"}`,
-                    borderRadius: "8px", padding: "10px 22px",
-                    fontSize: "var(--fs-eyebrow)", fontWeight: 700,
+                    background: btnHover && !submitting ? "#1c1518" : accent,
+                    color: "#ffffff",
+                    border: `2.5px solid ${accent}`,
+                    borderRadius: 0, padding: "13px 30px",
+                    fontSize: "var(--fs-eyebrow)", fontWeight: 750,
                     letterSpacing: "0.14em", textTransform: "uppercase",
                     cursor: submitting ? "not-allowed" : "pointer",
                     opacity: submitting ? 0.6 : 1, transition: "all 0.22s",
-                    boxShadow: btnHover && !submitting ? `0 8px 24px ${isHair ? "rgba(94,154,113,0.4)" : "rgba(200,107,155,0.4)"}` : "none",
                     display: "inline-flex", alignItems: "center", gap: "8px",
+                    outline: "none",
                   }}
                 >
                   {submitting ? "Sending..." : "Send Enquiry"}
@@ -604,6 +606,9 @@ export default function ContactSection() {
       </div>
 
       <style>{`
+        .contact-inner input::placeholder,
+        .contact-inner textarea::placeholder { color: rgba(28,21,24,0.42); }
+        .contact-inner select { color: #1c1518; }
         @media (max-width: 767px) {
           .contact-inner { padding: 0 16px !important; }
           .contact-heading { margin-bottom: 18px !important; }

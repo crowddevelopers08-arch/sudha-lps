@@ -112,10 +112,8 @@ export default function Footer() {
             <h3
               style={{
                 margin: "0 0 10px 0",
-                fontSize: "var(--fs-body)",
-                lineHeight: 1.2,
+                fontSize: "20px",
                 color: "#fffdfa",
-                fontWeight: 900,
               }}
             >
               Skin and hair care with expert-led, personalised treatment.
@@ -239,12 +237,12 @@ export default function Footer() {
             flexWrap: "wrap",
           }}
         >
-          <span style={{ color: "rgba(255,253,250,0.62)", fontSize: "var(--fs-small)" }}>
+          <span style={{ color: "rgba(255,253,250,0.62)", fontSize: "var(--fs-body)" }}>
             Copyright 2026 Sudha Aesthetics. All rights reserved.
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: "12px",justifyContent: "flex-start" }}>
 
-            <Link href="/privacy-policy" style={{ color: "rgba(255,253,250,0.72)", textDecoration: "none", fontSize: "var(--fs-small)" }}>
+            <Link href="/privacy-policy" style={{ color: "rgba(255,253,250,0.72)", textDecoration: "none", fontSize: "var(--fs-body)" }}>
               Privacy
             </Link>
 

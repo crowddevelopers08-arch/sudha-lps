@@ -91,7 +91,7 @@ function TrustCard({ item, index }: { item: typeof TRUST_ITEMS[0]; index: number
           {/* eyebrow */}
           <p style={{
             margin: "0 0 4px 0",
-            fontSize: "var(--fs-eyebrow)", fontWeight: 700,
+            fontSize: "17px", fontWeight: 700,
             letterSpacing: "0.22em", textTransform: "uppercase",
             color: item.accent, lineHeight: 1,
           }}>
@@ -101,7 +101,7 @@ function TrustCard({ item, index }: { item: typeof TRUST_ITEMS[0]; index: number
           {/* headline */}
           <p style={{
             margin: "0 0 7px 0",
-            fontSize: "var(--fs-small)", fontWeight: 800,
+            fontSize: "16px", fontWeight: 800,
             color: "#241f21", lineHeight: 1.3,
           }}>
             {item.headline}
@@ -110,7 +110,7 @@ function TrustCard({ item, index }: { item: typeof TRUST_ITEMS[0]; index: number
           {/* body */}
           <p style={{
             margin: 0,
-            fontSize: "var(--fs-small)",
+            fontSize: "16px",
             color: "rgba(36,31,33,0.55)",
             lineHeight: 1.65,
           }}>

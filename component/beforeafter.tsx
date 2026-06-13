@@ -58,9 +58,42 @@ export default function BeforeAfterSection() {
 
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#b72c78] sm:text-[12px] sm:tracking-[0.32em]">
-            Before & After
-          </p>
+          <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                marginBottom: "12px",
+              }}
+            >
+              <span
+                style={{
+                  display: "block",
+                  width: "36px",
+                  height: "1.5px",
+                  background: "#c86b9b",
+                }}
+              />
+              <span
+                style={{
+                  fontSize: "var(--fs-eyebrow)",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: "#c86b9b",
+                  fontWeight: 700,
+                }}
+              >
+                Before & After  
+              </span>
+              <span
+                style={{
+                  display: "block",
+                  width: "36px",
+                  height: "1.5px",
+                  background: "#c86b9b",
+                }}
+              />
+            </div>
           <h2 className="mt-2 text-[clamp(25px,7vw,36px)] font-bold leading-[1.12] tracking-[-0.3px] text-[#241f21] sm:mt-3">
             Real transformation stories with visible care.
           </h2>
@@ -108,7 +141,7 @@ export default function BeforeAfterSection() {
 
                   <div className="flex items-center">
                     <div className="w-full rounded-[1.35rem] border border-[#5e9a71]/12 bg-white/70 p-4 shadow-[0_16px_38px_rgba(36,31,33,0.08)] backdrop-blur sm:rounded-[2rem] sm:p-6 sm:shadow-[0_20px_50px_rgba(36,31,33,0.08)]">
-                      <div className="inline-flex rounded-full bg-[#f3e1ea] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#b72c78] sm:px-4 sm:py-2 sm:text-[11px]">
+                      <div className="inline-flex rounded-full bg-[#f3e1ea] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#b72c78] sm:px-4 sm:py-2 sm:text-[11px] mb-2">
                         Case Study
                       </div>
                       <h3 className="mt-3 text-[22px] font-bold leading-[1.15] text-[#241f21] sm:mt-4 sm:text-[26px]">
@@ -120,19 +153,19 @@ export default function BeforeAfterSection() {
 
                       <div className="mt-4 grid gap-3 sm:mt-5 sm:grid-cols-2">
                         <div className="rounded-2xl border border-[#5e9a71]/12 bg-[#edf6f0] px-3 py-3 sm:px-4">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#3f7455] sm:text-[11px]">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#3f7455] sm:text-[9px]">
                             Approach
                           </p>
-                          <p className="mt-2 text-[13px] leading-[1.5] text-[#3f3a3d] sm:text-[14px]">
+                          <p className="mt-2 text-[13px] leading-[1.5] text-[#3f3a3d] sm:text-[12px]">
                             Dermatologist-led evaluation with customized treatment planning.
                           </p>
                         </div>
 
                         <div className="rounded-2xl border border-[#c86b9b]/12 bg-[#fbf0f5] px-3 py-3 sm:px-4">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#b72c78] sm:text-[11px]">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#b72c78] sm:text-[9px]">
                             Outcome
                           </p>
-                          <p className="mt-2 text-[13px] leading-[1.5] text-[#3f3a3d] sm:text-[14px]">
+                          <p className="mt-2 text-[13px] leading-[1.5] text-[#3f3a3d] sm:text-[12px]">
                             Noticeably improved appearance with a more confident finish.
                           </p>
                         </div>
@@ -166,7 +199,7 @@ export default function BeforeAfterSection() {
         <div className="mt-6 flex justify-center sm:mt-7">
           <a
             href="#contact"
-            className="inline-flex w-full max-w-[280px] items-center justify-center border-[2.5px] border-[#5e9a71] px-6 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[#5e9a71] outline-[1.5px] outline-[#5e9a71]/25 outline-offset-[5px] transition hover:bg-[#5e9a71] hover:text-white sm:w-auto sm:max-w-none sm:px-8"
+            className="inline-flex w-full max-w-[280px] items-center justify-center border-[2.5px] border-[#5e9a71] px-6 py-3 bg-[#5e9a71] text-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[#ffffff] outline-[1.5px] outline-[#5e9a71]/25 outline-offset-[5px] transition hover:bg-[#b72c78] hover:text-white sm:w-auto sm:max-w-none sm:px-8"
           >
             Book Consultation
           </a>

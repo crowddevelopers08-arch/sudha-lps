@@ -368,7 +368,7 @@ function StageCard({
       <p
         style={{
           margin: 0,
-          fontSize: "11px",
+          fontSize: "13px",
           color: selected ? "rgba(255,253,250,0.7)" : "rgba(255,253,250,0.38)",
           lineHeight: 1.4,
           transition: "color 0.25s",
@@ -878,11 +878,7 @@ export default function HairLossStage() {
                 margin: "0 0 10px 0",
                 letterSpacing: "-0.6px",
                 lineHeight: 1.1,
-                background:
-                  "linear-gradient(135deg, #fffdfa 30%, #c86b9b 65%, #5e9a71 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                color: "#fffdfa",
               }}
             >
               Find Your Stage,
@@ -892,9 +888,9 @@ export default function HairLossStage() {
             <p
               style={{
                 fontSize: "var(--fs-body)",
-                color: "rgba(255,253,250,0.48)",
+                color: "rgba(255,253,250,0.77)",
                 margin: "0 auto",
-                maxWidth: "460px",
+                maxWidth: "760px",
                 lineHeight: 1.65,
               }}
             >
@@ -1050,7 +1046,7 @@ export default function HairLossStage() {
                   style={{
                     margin: 0,
                     fontSize: "var(--fs-small)",
-                    color: "rgba(255,253,250,0.65)",
+                    color: "rgba(255, 253, 250, 0.77)",
                     lineHeight: 1.65,
                   }}
                 >
@@ -1065,8 +1061,8 @@ export default function HairLossStage() {
             style={{
               textAlign: "center",
               margin: "16px 0 0 0",
-              fontSize: "11px",
-              color: "rgba(255,253,250,0.22)",
+              fontSize: "16px",
+              color: "rgba(255, 253, 250, 0.77)",
               letterSpacing: "0.08em",
             }}
           >

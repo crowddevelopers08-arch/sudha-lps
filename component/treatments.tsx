@@ -101,7 +101,7 @@ function TreatmentCard({ treatment, accent }: { treatment: Treatment; accent: st
         </p>
 
         <p style={{
-          fontSize: "11px", fontWeight: 600,
+          fontSize: "13.4px", fontWeight: 600,
           color: accent, margin: "0 0 8px 0",
           letterSpacing: "0.04em",
           opacity: 0.9,
@@ -110,7 +110,7 @@ function TreatmentCard({ treatment, accent }: { treatment: Treatment; accent: st
         </p>
 
         <p style={{
-          fontSize: "11px", color: "#5b5558",
+          fontSize: "13.4px", color: "#5b5558",
           margin: 0, lineHeight: 1.65,
         }}>
           {treatment.desc}

@@ -14,6 +14,7 @@ interface LeadData {
   phone: string;
   email?: string;
   treatment?: string;
+  concern?: string;
   procedure?: string;
   message?: string;
   city?: string;
@@ -25,6 +26,8 @@ interface LeadData {
   consent?: boolean;
   status?: string;
   
+  pageUrl?: string;
+
   // Smile Baby specific fields
   whatsappNumber?: string;
   womansAgeBracket?: string;
@@ -139,29 +142,69 @@ async function sendToTeleCRM(leadData: LeadData) {
 
   const phone = normalizePhoneForTeleCRM(leadData.phone);
   
-  // Prepare notes based on form type
-  const notes = [
-    { type: "SYSTEM_NOTE", text: `Form Name: ${leadData.formName || "Website Leads"}` },
-    { type: "SYSTEM_NOTE", text: `Source: ${leadData.source || "Website"}` },
-    { type: "SYSTEM_NOTE", text: `Consent Given: ${leadData.consent ? "Yes" : "No"}` },
-  ];
+  // Extract stage from message
+  const stageMatch = leadData.message?.match(/Selected Stage:\s*(\d+)/);
+  const hairGrade = stageMatch ? stageMatch[1] : null;
+  const cleanMessage = leadData.message
+    ?.replace(/\s*\|\s*Selected Stage:\s*\d+/, "")
+    .replace(/Selected Stage:\s*\d+/, "")
+    .trim() || null;
 
-  // Add Smile Baby specific notes
-  if (leadData.formName?.toLowerCase() === 'smile baby evaluation') {
-    notes.push(
-      { type: "SYSTEM_NOTE", text: `Service: Evaluation Consultation - Smile Baby Evaluation` },
-      { type: "SYSTEM_NOTE", text: `Woman's Age Bracket: ${leadData.womansAgeBracket || "Not specified"}` },
-      { type: "SYSTEM_NOTE", text: `Trying Duration: ${leadData.tryingDuration || "Not specified"}` },
-      { type: "SYSTEM_NOTE", text: `WhatsApp: ${leadData.isWhatsapp || leadData.whatsapp || "Not specified"}` }
-    );
-  } else {
-    // Add other form specific notes
-    notes.push(
-      { type: "SYSTEM_NOTE", text: `Test/Treatment Requested: ${leadData.test || leadData.treatment || "Not specified"}` },
-      { type: "SYSTEM_NOTE", text: `Pincode: ${leadData.pincode || "Not specified"}` },
-      { type: "SYSTEM_NOTE", text: `Message: ${leadData.message || "Not specified"}` }
-    );
-  }
+  const isSmileBaby = leadData.formName?.toLowerCase() === 'smile baby evaluation';
+
+  const noteText = isSmileBaby
+    ? [
+        `Details:`,
+        `Name: ${leadData.name}`,
+        `Phone: ${phone}`,
+        `Email: ${leadData.email || "Not provided"}`,
+        `Source: ${leadData.source || "Website"}`,
+        `Page URL: ${leadData.pageUrl || "Not available"}`,
+        `Service: Evaluation Consultation - Smile Baby Evaluation`,
+        `Age Bracket: ${leadData.womansAgeBracket || "Not specified"}`,
+        `Trying Duration: ${leadData.tryingDuration || "Not specified"}`,
+        `WhatsApp: ${leadData.isWhatsapp || leadData.whatsapp || "Not specified"}`,
+      ].join(" | ")
+    : [
+        `Details:`,
+        `Name: ${leadData.name}`,
+        `Phone: ${phone}`,
+        `Email: ${leadData.email || "Not provided"}`,
+        `Source: ${leadData.source || "Website"}`,
+        `Page URL: ${leadData.pageUrl || "Not available"}`,
+        `Concern: ${leadData.concern || leadData.treatment || "Not specified"}`,
+        `Message: ${cleanMessage || "Not specified"}`,
+        `Hair Grade: ${hairGrade || "Not selected"}`,
+      ].join(" | ");
+
+  const individualNotes = isSmileBaby
+    ? [
+        { type: "SYSTEM_NOTE", text: `Form: ${leadData.formName || "Website Leads"}` },
+        { type: "SYSTEM_NOTE", text: `Name: ${leadData.name}` },
+        { type: "SYSTEM_NOTE", text: `Phone: ${phone}` },
+        { type: "SYSTEM_NOTE", text: `Email: ${leadData.email || "Not provided"}` },
+        { type: "SYSTEM_NOTE", text: `Source: ${leadData.source || "Website"}` },
+        { type: "SYSTEM_NOTE", text: `Page URL: ${leadData.pageUrl || "Not available"}` },
+        { type: "SYSTEM_NOTE", text: `Service: Evaluation Consultation - Smile Baby Evaluation` },
+        { type: "SYSTEM_NOTE", text: `Age Bracket: ${leadData.womansAgeBracket || "Not specified"}` },
+        { type: "SYSTEM_NOTE", text: `Trying Duration: ${leadData.tryingDuration || "Not specified"}` },
+        { type: "SYSTEM_NOTE", text: `WhatsApp: ${leadData.isWhatsapp || leadData.whatsapp || "Not specified"}` },
+      ]
+    : [
+        { type: "SYSTEM_NOTE", text: `Form: ${leadData.formName || "Website Leads"}` },
+        { type: "SYSTEM_NOTE", text: `Name: ${leadData.name}` },
+        { type: "SYSTEM_NOTE", text: `Phone: ${phone}` },
+        { type: "SYSTEM_NOTE", text: `Email: ${leadData.email || "Not provided"}` },
+        { type: "SYSTEM_NOTE", text: `Source: ${leadData.source || "Website"}` },
+        { type: "SYSTEM_NOTE", text: `Page URL: ${leadData.pageUrl || "Not available"}` },
+        { type: "SYSTEM_NOTE", text: `Concern: ${leadData.treatment || "Not specified"}` },
+        { type: "SYSTEM_NOTE", text: `Message: ${cleanMessage || "Not specified"} | Hair Grade: ${hairGrade || "Not selected"}` },
+      ];
+
+  const notes = [
+    { type: "SYSTEM_NOTE", text: noteText },
+    ...individualNotes,
+  ];
 
   const telecrmPayload = {
     fields: {
@@ -285,6 +328,7 @@ export async function POST(request: NextRequest) {
     }
 
     const validatedData = data as LeadData;
+    validatedData.pageUrl = request.headers.get("referer") || request.headers.get("origin") || undefined;
 
     // ✅ TeleCRM sync
     let telecrmResponse: any = null;

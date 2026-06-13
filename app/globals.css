@@ -24,8 +24,8 @@ a[href="#contact"]:hover * {
   --fs-title:    clamp(30px, 3.4vw, 46px);   /* h1 / h2  – section headings   */
   --fs-subtitle: clamp(17px, 1.8vw, 22px);   /* h3       – sub-headings        */
   --fs-eyebrow:  11px;                        /* uppercase tracking labels      */
-  --fs-body:     15px;                        /* paragraphs / body copy         */
-  --fs-small:    12px;                        /* captions / meta text           */
+  --fs-body:     18px;                        /* paragraphs / body copy         */
+  --fs-small:    15px;                        /* captions / meta text           */
   --surface: #fffdfa;
   --sage: #5e9a71;
   --sage-deep: #3f7455;

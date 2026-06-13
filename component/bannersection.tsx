@@ -362,23 +362,6 @@ export default function BannerSection() {
         }}
       />
 
-      <svg
-        aria-hidden
-        style={{ position: "absolute", top: 0, left: "6%", zIndex: 3, pointerEvents: "none" }}
-        width="380"
-        height="70"
-        viewBox="0 0 380 70"
-        fill="none"
-      >
-        <path d="M30 0 Q28 24 26 34 Q24 44 26 56 Q28 66 26 74" stroke="rgba(94,154,113,0.32)" strokeWidth="2.5" fill="none"/>
-        <ellipse cx="26" cy="74" rx="3" ry="5" fill="rgba(94,154,113,0.18)"/>
-        <path d="M130 0 Q129 16 128 26 Q127 34 129 42" stroke="rgba(200,107,155,0.22)" strokeWidth="1.8" fill="none"/>
-        <ellipse cx="129" cy="42" rx="2.5" ry="4" fill="rgba(200,107,155,0.14)"/>
-        <path d="M260 0 Q262 20 263 34 Q264 46 261 58 Q259 68 261 76" stroke="rgba(94,154,113,0.26)" strokeWidth="2" fill="none"/>
-        <ellipse cx="261" cy="76" rx="2.8" ry="4.5" fill="rgba(94,154,113,0.16)"/>
-        <path d="M360 0 Q361 12 360 22 Q359 30 361 38" stroke="rgba(200,107,155,0.18)" strokeWidth="1.6" fill="none"/>
-        <ellipse cx="361" cy="38" rx="2" ry="3.5" fill="rgba(200,107,155,0.12)"/>
-      </svg>
 
       <div
         aria-hidden
@@ -444,7 +427,7 @@ export default function BannerSection() {
                 alignItems: "center",
                 gap: "10px",
                 marginBottom: "18px",
-                background: "rgba(183,44,120,0.18)",
+                background: "rgba(183, 44, 120, 0.48)",
                 border: "1px solid rgba(183,44,120,0.32)",
                 padding: "9px 14px",
                 boxShadow: "0 10px 26px rgba(18,13,16,0.16)",

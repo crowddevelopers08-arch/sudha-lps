@@ -115,8 +115,8 @@ export default function Navbar() {
             onMouseEnter={() => setBtnHover(true)}
             onMouseLeave={() => setBtnHover(false)}
             style={{
-              background: btnHover ? "#b72c78" : "transparent",
-              color: btnHover ? "#ffffff" : "#5e9a71",
+              background: btnHover ? "#b72c78" : "#5e9a71",
+              color: "#ffffff",
               border: "2.5px solid #5e9a71",
               borderRadius: 0,
               padding: "10px 22px",
@@ -203,8 +203,8 @@ export default function Navbar() {
             onMouseEnter={() => setBtnHover(true)}
             onMouseLeave={() => setBtnHover(false)}
             style={{
-              background: btnHover ? "#b72c78" : "transparent",
-              color: btnHover ? "#ffffff" : "#5e9a71",
+              background: btnHover ? "#b72c78" : "#5e9a71",
+              color: "#ffffff",
               border: "2.5px solid #5e9a71",
               borderRadius: 0,
               padding: "10px 22px",

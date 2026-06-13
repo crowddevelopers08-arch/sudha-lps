@@ -226,7 +226,7 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
       {/* Info bottom */}
       <div style={{ padding: "13px 14px 16px", flex: 1, display: "flex", flexDirection: "column" }}>
         <div style={{
-          fontSize: "9.5px", fontWeight: 700, letterSpacing: "0.16em",
+          fontSize: "10.5px", fontWeight: 700, letterSpacing: "0.16em",
           textTransform: "uppercase", color: "#c86b9b",
           marginBottom: "6px",
         }}>
@@ -239,13 +239,13 @@ function SmallCard({ doctor }: { doctor: typeof DOCTORS[0] }) {
           {doctor.name}
         </p>
         <p style={{
-          fontSize: "11.5px", color: "rgba(255,253,250,0.5)",
+          fontSize: "13.5px", color: "rgba(255,253,250,0.5)",
           margin: "0 0 8px 0", fontWeight: 500,
         }}>
           {doctor.role}
         </p>
         <p style={{
-          fontSize: "11px", color: "rgba(255,253,250,0.38)",
+          fontSize: "13px", color: "rgba(255,253,250,0.38)",
           margin: "0 0 10px 0", fontWeight: 400, lineHeight: 1.55,
         }}>
           {doctor.experience}
@@ -470,7 +470,7 @@ export default function Specialists() {
           position: "absolute", top: "-120px", left: "50%",
           transform: "translateX(-50%)",
           width: "700px", height: "400px",
-          background: "radial-gradient(ellipse, rgba(200,107,155,0.22) 0%, transparent 68%)",
+          // background: "radial-gradient(ellipse, rgba(200,107,155,0.22) 0%, transparent 68%)",
           zIndex: 2, pointerEvents: "none",
         }} />
 
@@ -485,7 +485,6 @@ export default function Specialists() {
         {/* Top hairline */}
         <div aria-hidden style={{
           position: "absolute", top: 0, left: 0, right: 0, height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(200,107,155,0.5), rgba(94,154,113,0.35), transparent)",
           zIndex: 3,
         }} />
 
@@ -502,7 +501,6 @@ export default function Specialists() {
             }}>
               Our Specialists
             </span>
-            <span style={{ display: "block", width: "36px", height: "1.5px", background: "#c86b9b" }} />
           </div>
 
           <h2 style={{
@@ -511,17 +509,14 @@ export default function Specialists() {
             margin: "0 0 10px 0",
             letterSpacing: "-0.8px",
             lineHeight: 1.1,
-            background: "linear-gradient(135deg, #fffdfa 30%, #c86b9b 65%, #5e9a71 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            color: "#fffdfa",
           }}>
-            Expert Hands Behind<br />Every Transformation
+            Expert Hands Behind Every Transformation
           </h2>
 
           <p style={{
             fontSize: "var(--fs-body)", color: "rgba(255,253,250,0.52)",
-            margin: "0 auto", maxWidth: "480px", lineHeight: 1.65,
+            margin: "0 auto", maxWidth: "580px", lineHeight: 1.65,
           }}>
             Board-certified dermatologists with years of hands-on expertise in skin, hair, and aesthetic medicine.
           </p>
@@ -559,8 +554,8 @@ export default function Specialists() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: btnHover ? "#b72c78" : "transparent",
-              color: btnHover ? "#ffffff" : "#5e9a71",
+              background: btnHover ? "#b72c78" : "#5e9a71",
+              color: "#ffffff",
               border: "2.5px solid #5e9a71",
               borderRadius: 0,
               padding: "10px 24px",

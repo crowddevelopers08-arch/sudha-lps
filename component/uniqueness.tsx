@@ -132,7 +132,7 @@ function TableRow({ row, i }: { row: typeof ROWS[0]; i: number }) {
         <div style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
           <div style={{ marginTop: "1px" }}><Cross /></div>
           <span style={{
-            fontSize: "var(--fs-small)", color: "rgba(255,253,250,0.35)",
+            fontSize: "var(--fs-small)", color: "rgba(255, 253, 250, 0.77)",
             lineHeight: 1.65, fontWeight: 400,
           }}>
             {row.them}
@@ -152,21 +152,18 @@ function BookBtn() {
       onMouseLeave={() => setH(false)}
       style={{
         display: "inline-flex", alignItems: "center", gap: "10px",
-        background: h ? SAGE : "transparent",
-        color: h ? "#fff" : SAGE,
-        border: `2px solid ${h ? SAGE : "rgba(94,154,113,0.6)"}`,
+        background: h ? "#b72c78" : "#5e9a71",
+        color: "#ffffff",
+        border: "2.5px solid #5e9a71",
         borderRadius: 0,
         padding: "10px 26px",
         fontSize: "var(--fs-eyebrow)", fontWeight: 700,
         letterSpacing: "0.14em", textTransform: "uppercase",
         cursor: "pointer",
         transition: "all 0.2s",
-        outline: "1.5px solid rgba(94,154,113,0.18)",
-        outlineOffset: "5px",
         whiteSpace: "nowrap",
         flexShrink: 0,
         textDecoration: "none",
-        boxShadow: h ? "0 8px 24px rgba(94,154,113,0.35)" : "none",
       }}
     >
       Book Consultation
@@ -205,7 +202,6 @@ export default function Uniqueness() {
       <div aria-hidden style={{
         position: "absolute", bottom: "-60px", left: "-80px",
         width: "540px", height: "380px",
-        background: "radial-gradient(ellipse, rgba(94,154,113,0.18) 0%, transparent 65%)",
         zIndex: 2, pointerEvents: "none",
       }} />
 
@@ -231,14 +227,12 @@ export default function Uniqueness() {
 
           <h2 style={{
             fontSize: "var(--fs-title)", fontWeight: 900,
-            margin: "0 0 10px 0", letterSpacing: "-0.6px", lineHeight: 1.1,
-            background: "linear-gradient(135deg, #fffdfa 30%, #c86b9b 65%, #5e9a71 100%)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+            margin: "0 0 10px 0", letterSpacing: "-0.6px", lineHeight: 1.1,color: "#fffdfa",
           }}>
             How Sudha Aesthetics<br />Stands Apart
           </h2>
 
-          <p style={{ fontSize: "var(--fs-body)", color: "rgba(255,253,250,0.45)", margin: "0 auto", maxWidth: "460px", lineHeight: 1.65 }}>
+          <p style={{ fontSize: "var(--fs-body)", color: "rgba(255,253,250,0.77)", margin: "0 auto", maxWidth: "660px", lineHeight: 1.65 }}>
             Expert care, cutting-edge technology, and personalised treatment — see the difference clearly.
           </p>
         </div>
@@ -256,7 +250,7 @@ export default function Uniqueness() {
               borderRadius: "20px",
               overflow: "hidden",
               boxShadow: "0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)",
-              background: "rgba(255,253,250,0.025)",
+              background: "rgba(255,253,250,0.086)",
             }}
           >
             {/* ── THEAD ── */}
@@ -265,8 +259,8 @@ export default function Uniqueness() {
                 {/* Feature col header */}
                 <th style={{
                   width: "22%", padding: "14px 16px", textAlign: "left",
-                  fontSize: "10px", fontWeight: 700, letterSpacing: "0.22em",
-                  textTransform: "uppercase", color: "rgba(255,253,250,0.3)",
+                  fontSize: "15px", fontWeight: 700, letterSpacing: "0.22em",
+                  textTransform: "uppercase", color: "rgba(255, 253, 250, 0.94)",
                   borderBottom: "1px solid rgba(255,255,255,0.07)",
                   background: "rgba(255,255,255,0.03)",
                 }}>
@@ -316,7 +310,7 @@ export default function Uniqueness() {
                   <span style={{
                     display: "inline-flex", alignItems: "center", gap: "8px",
                     fontSize: "var(--fs-small)", fontWeight: 700, letterSpacing: "0.18em",
-                    textTransform: "uppercase", color: "rgba(255,253,250,0.3)",
+                    textTransform: "uppercase", color: "rgba(255, 253, 250, 0.71)",
                   }}>
                     Other Clinics
                   </span>
@@ -345,14 +339,12 @@ export default function Uniqueness() {
           justifyContent: "space-between",
           gap: "16px", flexWrap: "wrap",
           backdropFilter: "blur(10px)",
-          boxShadow: "0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.04), 0 0 30px rgba(94,154,113,0.08)",
         }}>
           {/* Left glow dot */}
           <div style={{ position: "relative", paddingLeft: "0" }}>
             <div style={{
               position: "absolute", left: "-36px", top: "50%", transform: "translateY(-50%)",
               width: "8px", height: "8px", borderRadius: "50%",
-              background: SAGE, boxShadow: `0 0 12px ${SAGE}, 0 0 24px rgba(94,154,113,0.5)`,
             }} />
             <p style={{
               fontSize: "var(--fs-subtitle)", fontWeight: 900,
@@ -361,7 +353,7 @@ export default function Uniqueness() {
             }}>
               Ready to experience the difference?
             </p>
-            <p style={{ fontSize: "var(--fs-small)", color: "rgba(255,253,250,0.45)", margin: 0, lineHeight: 1.5 }}>
+            <p style={{ fontSize: "var(--fs-small)", color: "rgba(255, 253, 250, 0.77)", margin: 0, lineHeight: 1.5 }}>
               Book a consultation with our expert dermatologists today.
             </p>
           </div>
