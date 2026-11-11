@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IMG } from "@/component/generic-lp/images";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E")`;
 
@@ -83,7 +84,7 @@ export default function Footer() {
               <Link href="/generic" className="flex shrink-0 items-center" aria-label="Go to homepage">
           <div className="relative h-12 w-20 sm:w-44 lg:h-20 lg:w-38">
             <Image
-              src="/logos.JPG"
+              src={IMG.logo}
               alt="Sudha Skin Hair Aesthetics logo"
               fill
               className="object-contain object-left"

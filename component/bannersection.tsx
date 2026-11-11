@@ -19,13 +19,13 @@ const TYPING_PHRASES = [
 
 const IMAGES = [
   {
-    src: "/name.jpeg",
+    src: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405483/name.jpg",
     fallback: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&q=90",
     label: "Skin Care",
     sublabel: "Expert Dermatologist Consult",
   },
   {
-    src: "/names.jpeg",
+    src: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405484/names.jpg",
     fallback: "",
     label: "Hair Care",
     sublabel: "Advanced Hair Restoration",
@@ -62,7 +62,7 @@ export default function BannerSection() {
         alignItems: "center",
         minHeight: "680px",
         backgroundImage:
-          "url('/unnamed.webp')",
+          "url('https://res.cloudinary.com/h2vx5bue/image/upload/v1794405498/unnamed.webp')",
         backgroundSize: "100%",
         backgroundPosition: "left center, right center",
         backgroundRepeat: "no-repeat, no-repeat",
@@ -145,7 +145,7 @@ export default function BannerSection() {
           .banner-section {
             min-height: auto !important;
             align-items: flex-start !important;
-            background-image: url('/rejuvenating-facial-treatment.jpg') !important;
+            background-image: url('https://res.cloudinary.com/h2vx5bue/image/upload/v1794405498/unnamed.webp') !important;
             background-size: cover !important;
             background-position: center top !important;
             background-repeat: no-repeat !important;

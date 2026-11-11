@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Roboto, Sora } from "next/font/google";
+import { IMG } from "@/component/generic-lp/images";
 
 const head = Sora({ subsets: ["latin"], weight: ["600", "700"] });
 const body = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -11,9 +12,9 @@ const body = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 const GREEN = "bg-[#3f7455]";
 
 const SLIDES = [
-  { src: "/care-slide-1.jpg", alt: "Close skin examination with a magnifier", pos: "50% 45%" },
-  { src: "/care-slide-2.jpg", alt: "Dermatoscope skin examination", pos: "50% 50%" },
-  { src: "/care-slide-3.jpg", alt: "Doctor consultation explaining the treatment plan", pos: "50% 40%" },
+  { src: IMG.slide1, alt: "Close skin examination with a magnifier", pos: "50% 45%" },
+  { src: IMG.slide2, alt: "Dermatoscope skin examination", pos: "50% 50%" },
+  { src: IMG.slide3, alt: "Doctor consultation explaining the treatment plan", pos: "50% 40%" },
 ];
 
 const ArrowIcon = ({ className = "" }: { className?: string }) => (

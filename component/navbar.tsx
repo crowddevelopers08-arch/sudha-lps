@@ -70,7 +70,7 @@ export default function Navbar() {
         <Link href="/" className="flex shrink-0 items-center" aria-label="Go to homepage">
           <div className="relative h-14 w-18 sm:w-44 lg:h-26 lg:w-48">
             <Image
-              src="/logos.png"
+              src="https://res.cloudinary.com/h2vx5bue/image/upload/v1794405482/logos.jpg"
               alt="Sudha Skin Hair Aesthetics logo"
               fill
               className="object-contain max-sm:object-cover max-sm:object-left"
@@ -79,7 +79,7 @@ export default function Navbar() {
           </div>
           <div className="relative h-13 w-43 sm:w-44 lg:h-26 lg:w-48">
             <Image
-              src="/logos1.png"
+              src="https://res.cloudinary.com/h2vx5bue/image/upload/v1794405482/logos1.png"
               alt="Sudha Skin Hair Aesthetics secondary logo"
               fill
               className="object-contain max-sm:object-cover max-sm:object-left"

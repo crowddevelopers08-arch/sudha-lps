@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Roboto, Sora } from "next/font/google";
 import Image from "next/image";
+import { IMG } from "@/component/generic-lp/images";
 
 const head = Sora({ subsets: ["latin"], weight: ["600", "700"] });
 const body = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -64,16 +65,16 @@ const CTA = "Submit Your Details";
 
 /* images already in /public */
 const IMAGES: Record<string, { src: string; pos?: string }> = {
-  Psoriasis: { src: "/Psoriasis-1.webp" },
-  Vitiligo: { src: "/Vitiligo-1.jpg" },
-  Pemphigus: { src: "/Pemphigus-1.jpg" },
-  "Nail Fungus": { src: "/Nail-Fungus-1.jpg" },
-  "Fungal Infections": { src: "/Fungal-Infections-1.jpg" },
-  "Lichenoid Melanosis": { src: "/Oral-Lichenoid-Lesion-1.webp" },
-  Urticaria: { src: "/Urticaria-1.jpg" },
-  Melasma: { src: "/Melasm-1.webp" },
-  "Drug Reactions": { src: "/Drug-Reactions-1.jpg" },
-  "Pityriasis Versicolor": { src: "/Pityriasis-Versicolor.jpg" },
+  Psoriasis: { src: IMG.psoriasis },
+  Vitiligo: { src: IMG.vitiligo },
+  Pemphigus: { src: IMG.pemphigus },
+  "Nail Fungus": { src: IMG.nailFungus },
+  "Fungal Infections": { src: IMG.fungal },
+  "Lichenoid Melanosis": { src: IMG.lichenoid },
+  Urticaria: { src: IMG.urticaria },
+  Melasma: { src: IMG.melasma },
+  "Drug Reactions": { src: IMG.drugReactions },
+  "Pityriasis Versicolor": { src: IMG.pityriasis },
 };
 
 const ArrowIcon = ({ className = "" }: { className?: string }) => (

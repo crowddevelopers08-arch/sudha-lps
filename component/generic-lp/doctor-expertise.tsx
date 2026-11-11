@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Roboto, Sora } from "next/font/google";
+import { IMG } from "@/component/generic-lp/images";
 
 const head = Sora({ subsets: ["latin"], weight: ["600", "700"] });
 const body = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -52,7 +53,7 @@ export default function DoctorExpertise() {
           <div className="absolute inset-x-[3%] bottom-0 top-[3%] rounded-t-[999px] border-2 border-[#c86b9b]/45" />
 
           <Image
-            src="/health-doctor-standing.png"
+            src={IMG.doctor}
             alt={`${DOCTOR.name}, ${DOCTOR.qualification}`}
             width={619}
             height={1476}

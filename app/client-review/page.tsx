@@ -12,7 +12,7 @@ const Review = () => {
             <div className="flex items-center justify-center gap-2 rounded-full border border-[#5e9a71]/15 bg-[#fffdfa] px-4 py-3 shadow-[0_12px_34px_rgba(63,116,85,0.08)] sm:gap-3 sm:px-5">
               <div className="relative h-14 w-20 sm:h-16 sm:w-28">
                 <Image
-                  src="/logos.png"
+                  src="https://res.cloudinary.com/h2vx5bue/image/upload/v1794405482/logos.jpg"
                   alt="Sudha Skin Hair Aesthetics logo"
                   fill
                   sizes="(min-width: 640px) 112px, 80px"
@@ -22,7 +22,7 @@ const Review = () => {
               </div>
               <div className="relative h-14 w-24 sm:h-16 sm:w-32">
                 <Image
-                  src="/logos1.png"
+                  src="https://res.cloudinary.com/h2vx5bue/image/upload/v1794405482/logos1.png"
                   alt="Sudha Skin Hair Aesthetics secondary logo"
                   fill
                   sizes="(min-width: 640px) 128px, 96px"

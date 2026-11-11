@@ -9,15 +9,15 @@ const CASE_STUDIES = [
     title: "Hair Loss Treatment",
     description:
       "Targeted treatments designed to reduce hair fall, strengthen hair roots, and promote healthier, thicker hair growth.",
-    before: "/bfaf.jpeg",
-    after: "/bfaf1.jpeg",
+    before: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405475/bfaf.jpg",
+    after: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405474/bfaf1.jpg",
   },
   {
     title: "Hair Transplant",
     description:
       "Advanced hair restoration procedure designed to permanently address hair loss by transplanting healthy hair follicles for natural-looking growth.",
-    before: "/bfaf2.jpeg",
-    after: "/bfaf4.jpeg",
+    before: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405475/bfaf2.jpg",
+    after: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405475/bfaf4.jpg",
   },
 ];
 

@@ -55,7 +55,7 @@ export default function Navbared() {
         <Link href="/" className="flex items-center">
           <div className="relative h-12 w-36 sm:h-14 sm:w-40 lg:h-25 lg:w-48">
             <Image
-              src="/logos.JPG"
+              src="https://res.cloudinary.com/h2vx5bue/image/upload/v1794405482/logos.jpg"
               alt="Logo"
               fill
               className="object-contain"

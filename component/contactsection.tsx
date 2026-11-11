@@ -5,28 +5,28 @@ import { useRouter } from "next/navigation";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E")`;
 
-const HAIR_CONTACT_IMAGE = "/adult-male-having-balding-problems.jpg";
-const SKIN_CONTACT_IMAGE = "/rejuvenating-facial-treatment.jpg";
+const HAIR_CONTACT_IMAGE = "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405475/bfaf2.jpg";
+const SKIN_CONTACT_IMAGE = "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405504/treat13.png";
 const HAIR_STAGE_IMAGES = [
-  "/st1-2.jpeg",
-  "/st2-1.jpeg",
-  "/st3-3.jpeg",
-  "/st4-4.jpeg",
-  "/st5-5.jpeg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405486/st1-2.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st2-1.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st3-3.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st4-4.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405488/st5-5.jpg",
 ];
 const SKIN_STAGE_IMAGES = [
-  "/images1.png",
-  "/images2.png",
-  "/images3.png",
-  "/images4.png",
-  "/images5.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images1.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images2.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images3.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images4.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images5.png",
 ];
 const SKIN_CONCERN_STAGE_IMAGES: Record<string, string[]> = {
-  "Acne / Breakouts":          ["/images1.png",  "/images2.png",  "/images3.png",  "/images4.png",  "/images5.png"],
-  "Pigmentation / Dark Spots": ["/shakura-pigmentation-stages.jpeg",   "/shakura-pigmentation-stages1.jpeg",   "/shakura-pigmentation-stages2.jpeg",   "/shakura-pigmentation-stages3.jpeg",   "/shakura-pigmentation-stages4.png"],
-  "Anti-Aging / Fine Lines":   ["/wrikingle.png",  "/wrikingle1.png",  "/wrikingle2.png",  "/wrikingle3.png",  "/wrikingle4.png"],
-  "Laser Hair Removal":   ["/laser7.png",  "/laser6.jpeg",  "/laser8.jpeg",  "/laser4.jpeg",  "/laser10.jpeg"],
-  "Other":           ["/laser1.jpeg",  "/laser2.jpeg",  "/laser11.webp",  "/laser3.jpeg",  "/tatto.jpeg"],
+  "Acne / Breakouts":          ["https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images1.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images2.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images3.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images4.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images5.png"],
+  "Pigmentation / Dark Spots": ["https://res.cloudinary.com/h2vx5bue/image/upload/v1794405485/shakura-pigmentation-stages.jpg",   "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405485/shakura-pigmentation-stages1.jpg",   "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405485/shakura-pigmentation-stages2.jpg",   "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405485/shakura-pigmentation-stages3.jpg",   "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405493/shakura-pigmentation-stages4.png"],
+  "Anti-Aging / Fine Lines":   ["https://res.cloudinary.com/h2vx5bue/image/upload/v1794405500/wrikingle.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405500/wrikingle1.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405501/wrikingle2.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405501/wrikingle3.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405505/wrikingle4.png"],
+  "Laser Hair Removal":   ["https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser7.png",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser6.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser8.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser4.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser10.jpg"],
+  "Other":           ["https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/laser1.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/laser2.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser11.webp",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405481/laser3.jpg",  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405488/tatto.jpg"],
 };
 const LASER_TREATMENT_NAMES = [
   "Leg Laser",

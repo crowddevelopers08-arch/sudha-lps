@@ -13,18 +13,18 @@ const SK_HOV = "#f5d0b4";
 const HR_BASE = "#2a1c10";
 const TAB_INTERVAL = 5000;
 const HAIR_STAGE_IMAGES = [
-  "/st1-2.jpeg",
-  "/st2-1.jpeg",
-  "/st3-3.jpeg",
-  "/st4-4.jpeg",
-  "/st5-5.jpeg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405486/st1-2.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st2-1.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st3-3.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405487/st4-4.jpg",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405488/st5-5.jpg",
 ];
 const SKIN_STAGE_IMAGES = [
-  "/images1.png",
-  "/images2.png",
-  "/images3.png",
-  "/images4.png",
-  "/images5.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images1.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images2.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images3.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images4.png",
+  "https://res.cloudinary.com/h2vx5bue/image/upload/v1794405480/images5.png",
 ];
 
 /* ═══════════════════════════════════════════════════

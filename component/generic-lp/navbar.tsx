@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { IMG } from "@/component/generic-lp/images";
 
 const NAV_LINKS = [
   { label: "Home", href: "#" },
@@ -45,18 +46,20 @@ export default function Navbar() {
         <Link href="/generic" className="flex shrink-0 items-center" aria-label="Go to homepage">
           <div className="relative h-14 w-18 sm:w-44 lg:h-26 lg:w-48">
             <Image
-              src="/logos.png"
+              src={IMG.logo}
               alt="Sudha Skin Hair Aesthetics logo"
               fill
-              className="object-contain max-sm:object-cover max-sm:object-left"
+              sizes="200px"
+              className="object-contain mix-blend-multiply max-sm:object-cover max-sm:object-left"
               priority
             />
           </div>
           <div className="relative h-13 w-43 sm:w-44 lg:h-26 lg:w-48">
             <Image
-              src="/logos1.png"
+              src={IMG.logo2}
               alt="Sudha Skin Hair Aesthetics secondary logo"
               fill
+              sizes="200px"
               className="object-contain max-sm:object-cover max-sm:object-left"
               priority
             />

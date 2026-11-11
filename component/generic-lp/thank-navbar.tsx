@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { IMG } from "@/component/generic-lp/images";
 
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E")`;
 
@@ -55,7 +56,7 @@ export default function Navbared() {
         <Link href="/generic" className="flex items-center">
           <div className="relative h-12 w-36 sm:h-14 sm:w-40 lg:h-25 lg:w-48">
             <Image
-              src="/logos.JPG"
+              src={IMG.logo}
               alt="Logo"
               fill
               className="object-contain"

@@ -2,6 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { IMG } from "@/component/generic-lp/images";
 import { Roboto, Sora } from "next/font/google";
 
 const head = Sora({ subsets: ["latin"], weight: ["600", "700"] });
@@ -234,14 +235,27 @@ export default function GenericLeadsDashboard() {
         <div className="mx-auto flex min-h-[72px] max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-8">
           <div className="flex min-w-0 items-center">
             <div className="relative h-12 w-[72px] shrink-0 sm:h-14 sm:w-24">
-              <Image src="/logos.png" alt="Sudha Skin Hair Aesthetics" fill sizes="96px" className="object-contain object-left" priority />
+              <Image src={IMG.logo} alt="Sudha Skin Hair Aesthetics" fill sizes="96px" className="object-contain object-left mix-blend-multiply" priority />
             </div>
             <div className="relative h-11 w-[96px] shrink-0 sm:h-12 sm:w-36">
-              <Image src="/logos1.png" alt="A unit of Sai Sudha Hospital" fill sizes="144px" className="object-contain object-left" priority />
+              <Image src={IMG.logo2} alt="A unit of Sai Sudha Hospital" fill sizes="144px" className="object-contain object-left" priority />
             </div>
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <div
+              role="button"
+              tabIndex={0}
+              aria-pressed={auto}
+              onClick={() => setAuto((a) => !a)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setAuto((a) => !a)}
+              className="flex h-11 cursor-pointer select-none items-center gap-2.5 rounded-full px-3 text-[13px] font-medium text-[#4a5550] outline-none transition hover:bg-[#eef3ef] sm:px-4"
+            >
+              <span className={`relative h-5 w-9 shrink-0 rounded-full transition ${auto ? "bg-[#3f7455]" : "bg-[#b9c2bd]"}`}>
+                <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white transition-all ${auto ? "left-[18px]" : "left-0.5"}`} />
+              </span>
+              <span className="hidden sm:inline">Auto refresh</span>
+            </div>
             <a
               href="/generic"
               className="hidden h-11 items-center gap-2 rounded-full px-4 text-[13px] font-bold text-[#4a5550] transition hover:bg-[#eef3ef] md:inline-flex"
@@ -262,50 +276,8 @@ export default function GenericLeadsDashboard() {
       </header>
 
       <div className="mx-auto max-w-[1280px] px-4 py-8 sm:px-8 sm:py-10">
-        {/* title banner */}
-        <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#3f7455] via-[#4a8462] to-[#5e9a71] p-6 text-white sm:p-9">
-          <span aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/10" />
-          <span aria-hidden className="pointer-events-none absolute -bottom-24 left-1/3 h-56 w-56 rounded-full bg-[#c86b9b]/25" />
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 py-1.5 pl-1.5 pr-4 text-[11px] font-bold uppercase leading-none tracking-[0.1em]">
-                <span className="grid h-6 w-6 place-items-center rounded-full bg-white text-[#3f7455]">
-                  <Svg fill className="h-3 w-3" d={<path d="M9.5 3h5v6.5H21v5h-6.5V21h-5v-6.5H3v-5h6.5V3Z" />} />
-                </span>
-                Generic Landing Page
-              </div>
-              <div role="heading" aria-level={1} className={`${head.className} mt-4 text-[30px] font-bold leading-tight tracking-[-0.015em] sm:text-[40px]`}>
-                Leads Dashboard
-              </div>
-              <div className="mt-2 max-w-[560px] text-[14.5px] leading-relaxed text-white/85">
-                Every enquiry submitted through the popup form, with its TeleCRM sync status, in one place.
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 rounded-full bg-white/15 px-4 py-2.5 text-[13px] font-medium">
-                <span className={`h-2 w-2 rounded-full ${loading ? "animate-pulse bg-[#ffd479]" : "bg-[#9fe3b4]"}`} />
-                {mounted && updatedAt ? `Updated ${updatedAt}` : "Loading..."}
-              </div>
-              <div
-                role="button"
-                tabIndex={0}
-                aria-pressed={auto}
-                onClick={() => setAuto((a) => !a)}
-                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setAuto((a) => !a)}
-                className="flex cursor-pointer select-none items-center gap-2.5 rounded-full bg-white/15 px-4 py-2.5 text-[13px] font-medium outline-none transition hover:bg-white/25"
-              >
-                <span className={`relative h-5 w-9 rounded-full transition ${auto ? "bg-white" : "bg-white/35"}`}>
-                  <span className={`absolute top-0.5 h-4 w-4 rounded-full transition-all ${auto ? "left-[18px] bg-[#3f7455]" : "left-0.5 bg-white"}`} />
-                </span>
-                Auto refresh
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* stats */}
-        <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {STAT_CARDS.map((c) => (
             <div key={c.label} className="relative overflow-hidden rounded-[22px] border border-[#3f7455]/12 bg-white p-5 transition hover:-translate-y-0.5">
               <div className="flex items-start justify-between">
