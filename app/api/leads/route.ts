@@ -279,6 +279,9 @@ async function sendToTeleCRM(leadData: LeadData) {
       };
     }
 
+    // diagnostic: what exactly did TeleCRM answer (no request data / phone numbers)
+    console.log("📥 TeleCRM raw response:", res.status, text.substring(0, 500));
+
     const confirmed = res.ok && isTelecrmConfirmed(data);
 
     console.log("📊 TeleCRM response parsed:", {
