@@ -82,12 +82,13 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
               <Link href="/generic" className="flex shrink-0 items-center" aria-label="Go to homepage">
-          <div className="relative h-12 w-20 sm:w-44 lg:h-20 lg:w-38">
+          <div className="relative h-[92px] w-[128px] overflow-hidden rounded-2xl bg-white sm:h-24 sm:w-[136px]">
             <Image
               src={IMG.logo}
               alt="Sudha Skin Hair Aesthetics logo"
               fill
-              className="object-contain object-left"
+              sizes="136px"
+              className="object-contain p-2"
               priority
             />
           </div>

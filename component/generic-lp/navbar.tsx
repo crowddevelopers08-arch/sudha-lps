@@ -8,7 +8,7 @@ import { IMG } from "@/component/generic-lp/images";
 const NAV_LINKS = [
   { label: "Home", href: "#" },
   { label: "Treatments", href: "#treatments" },
-  { label: "Doctors", href: "#specialists" },
+  { label: "Expertise Doctor", href: "#specialists" },
 ];
 
 export default function Navbar() {

@@ -83,45 +83,105 @@ const ArrowIcon = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
+const SETS = 3; // the list is rendered 3x so it can wrap around in both directions
+const SPEED = 45; // px per second (auto scroll)
+const IDLE_MS = 1500; // resume auto scroll this long after the user stops touching it
+
 export default function ConditionsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+  const setW = useRef(0); // width of one full set of cards
+  const pos = useRef(0); // exact (fractional) scroll position
+  const hover = useRef(false);
+  const focus = useRef(false);
+  const lastUser = useRef(0);
 
-  const update = useCallback(() => {
+  const measure = useCallback(() => {
     const el = trackRef.current;
     if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setAtStart(el.scrollLeft <= 4);
-    setAtEnd(el.scrollLeft >= max - 4);
-    setProgress(Math.min(1, (el.scrollLeft + el.clientWidth) / el.scrollWidth));
+    const cards = el.querySelectorAll<HTMLElement>("[data-card]");
+    if (cards.length > CONDITIONS.length) {
+      setW.current = cards[CONDITIONS.length].offsetLeft - cards[0].offsetLeft;
+    }
   }, []);
 
+  /* continuous auto scroll + seamless wrap */
   useEffect(() => {
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, [update]);
+    const el = trackRef.current;
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    measure();
+    pos.current = setW.current;
+    el.scrollLeft = pos.current;
+
+    let raf = 0;
+    let last = performance.now();
+    const tick = (now: number) => {
+      const dt = Math.min(now - last, 64) / 1000;
+      last = now;
+      const w = setW.current;
+      if (w) {
+        const idle = now - lastUser.current > IDLE_MS;
+        if (!hover.current && !focus.current && idle && !reduce) {
+          pos.current += SPEED * dt;
+          el.scrollLeft = pos.current;
+        } else {
+          pos.current = el.scrollLeft; // user (or arrows) is driving – stay in sync
+        }
+        // seamless wrap: always keep the position inside the middle set
+        if (pos.current >= 2 * w) {
+          pos.current -= w;
+          el.scrollLeft = pos.current;
+        } else if (pos.current < w) {
+          pos.current += w;
+          el.scrollLeft = pos.current;
+        }
+        if (barRef.current) barRef.current.style.width = `${(((pos.current - w) % w) / w) * 100}%`;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+
+    const onResize = () => {
+      const old = setW.current;
+      measure();
+      if (old && setW.current) {
+        pos.current = (pos.current / old) * setW.current;
+        el.scrollLeft = pos.current;
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [measure]);
+
+  /* a scroll that we did not cause = the user is swiping/dragging */
+  const onScroll = () => {
+    const el = trackRef.current;
+    if (el && Math.abs(el.scrollLeft - pos.current) > 2) lastUser.current = performance.now();
+  };
 
   const scrollByCard = (dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
+    lastUser.current = performance.now();
     const card = el.querySelector<HTMLElement>("[data-card]");
     const step = (card?.offsetWidth ?? 320) + 20;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   const arrowBase =
-    "grid h-11 w-11 cursor-pointer select-none place-items-center rounded-full border border-white/40 bg-white text-[#3f7455] shadow-[0_8px_22px_rgba(0,0,0,0.18)] transition outline-none hover:bg-[#c86b9b] hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 lg:h-[3vw] lg:min-h-11 lg:w-[3vw] lg:min-w-11";
+    "grid h-11 w-11 cursor-pointer select-none place-items-center rounded-full border border-[#3f7455]/25 bg-white text-[#3f7455] shadow-[0_6px_18px_rgba(63,116,85,0.14)] transition outline-none hover:bg-[#c86b9b] hover:text-white focus-visible:ring-2 focus-visible:ring-[#3f7455]/50 lg:h-[3vw] lg:min-h-11 lg:w-[3vw] lg:min-w-11";
 
   return (
     <section
       id="treatments"
-      className={`${body.className} relative w-full overflow-hidden bg-[#3f7455] bg-[linear-gradient(135deg,#4a8462_0%,#3f7455_45%,#2f5c43_100%)] py-10 sm:py-20`}
+      className={`${body.className} relative w-full overflow-hidden bg-[#f4f7fb] bg-[radial-gradient(circle_at_92%_8%,rgba(200,107,155,0.10),transparent_38%),radial-gradient(circle_at_6%_92%,rgba(94,154,113,0.12),transparent_40%)] py-10 sm:py-20`}
     >
-      <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/[0.06]" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 rounded-full bg-[#c86b9b]/[0.12]" />
+      <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#3f7455]/[0.06]" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 rounded-full bg-[#c86b9b]/[0.10]" />
 
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-8 lg:px-[11.1%]">
         {/* top row: label + arrows */}
@@ -141,10 +201,9 @@ export default function ConditionsCarousel() {
               role="button"
               tabIndex={0}
               aria-label="Previous"
-              aria-disabled={atStart}
-              onClick={() => !atStart && scrollByCard(-1)}
-              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && !atStart && scrollByCard(-1)}
-              className={`${arrowBase} ${atStart ? "pointer-events-none opacity-40" : ""}`}
+              onClick={() => scrollByCard(-1)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && scrollByCard(-1)}
+              className={arrowBase}
             >
               <ArrowIcon className="h-5 w-5 rotate-180" />
             </div>
@@ -152,10 +211,9 @@ export default function ConditionsCarousel() {
               role="button"
               tabIndex={0}
               aria-label="Next"
-              aria-disabled={atEnd}
-              onClick={() => !atEnd && scrollByCard(1)}
-              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && !atEnd && scrollByCard(1)}
-              className={`${arrowBase} ${atEnd ? "pointer-events-none opacity-40" : ""}`}
+              onClick={() => scrollByCard(1)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && scrollByCard(1)}
+              className={arrowBase}
             >
               <ArrowIcon className="h-5 w-5" />
             </div>
@@ -165,14 +223,19 @@ export default function ConditionsCarousel() {
         {/* track */}
         <div
           ref={trackRef}
-          onScroll={update}
-          className="-mx-4 flex snap-x snap-mandatory scroll-pl-4 gap-5 overflow-x-auto scroll-smooth px-4 pb-6 sm:scroll-pl-8 lg:scroll-pl-0 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:-mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden"
+          onScroll={onScroll}
+          onMouseEnter={() => (hover.current = true)}
+          onMouseLeave={() => (hover.current = false)}
+          onFocus={() => (focus.current = true)}
+          onBlur={() => (focus.current = false)}
+          className="-mx-4 flex gap-5 overflow-x-auto px-4 pb-6 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:-mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden"
         >
-          {CONDITIONS.map((c, i) => (
+          {Array.from({ length: SETS }).flatMap((_, set) => CONDITIONS.map((c, i) => (
             <article
-              key={c.condition}
+              key={`${set}-${c.condition}`}
+              aria-hidden={set !== 1 ? true : undefined}
               data-card
-              className="group relative flex shrink-0 basis-[88%] snap-start flex-col overflow-hidden rounded-[22px] border border-white/60 bg-white shadow-[0_18px_44px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_56px_rgba(0,0,0,0.32)] sm:basis-[calc((100%-1.25rem)/2)] lg:basis-[calc((100%-2.5rem)/3)]"
+              className="group relative flex shrink-0 basis-[88%] flex-col overflow-hidden rounded-[22px] border border-[#3f7455]/12 bg-white shadow-[0_14px_40px_rgba(36,31,33,0.09)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(63,116,85,0.2)] sm:basis-[calc((100%-1.25rem)/2)] lg:basis-[calc((100%-2.5rem)/3)]"
             >
               {/* illustration */}
               <div className="relative h-[200px] w-full shrink-0 overflow-hidden max-[360px]:h-[170px]">
@@ -211,6 +274,7 @@ export default function ConditionsCarousel() {
 
               <a
                 href="#contact"
+                tabIndex={set !== 1 ? -1 : undefined}
                 className="mt-auto flex h-[52px] w-full items-center justify-between rounded-full bg-[#3f7455] pl-6 pr-[6px] text-[15px] font-bold text-white shadow-[0_8px_22px_rgba(63,116,85,0.25)] transition hover:brightness-110"
               >
                 <span className="whitespace-nowrap">{CTA}</span>
@@ -220,15 +284,12 @@ export default function ConditionsCarousel() {
               </a>
               </div>
             </article>
-          ))}
+          )))}
         </div>
 
         {/* progress */}
-        <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-white/20">
-          <div
-            className="h-full rounded-full bg-gradient-to-r from-white to-[#f3b6d3] transition-[width] duration-300"
-            style={{ width: `${Math.round(progress * 100)}%` }}
-          />
+        <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-[#3f7455]/12">
+          <div ref={barRef} className="h-full w-0 rounded-full bg-gradient-to-r from-[#3f7455] to-[#c86b9b]" />
         </div>
       </div>
     </section>

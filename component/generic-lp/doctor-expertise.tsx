@@ -43,14 +43,17 @@ export default function DoctorExpertise() {
   return (
     <section
       id="specialists"
-      className={`${body.className} relative w-full overflow-hidden bg-[#f4f7fb] bg-[radial-gradient(circle_at_8%_90%,rgba(94,154,113,0.12),transparent_42%),radial-gradient(circle_at_95%_10%,rgba(200,107,155,0.10),transparent_38%)] py-10 sm:py-20 lg:py-24`}
+      className={`${body.className} relative w-full overflow-hidden bg-[#3f7455] bg-[linear-gradient(135deg,#4a8462_0%,#3f7455_45%,#2f5c43_100%)] py-10 sm:py-20 lg:py-24`}
     >
-      <div className="mx-auto grid max-w-[1400px] items-center gap-y-6 px-4 sm:px-8 lg:grid-cols-2 lg:gap-x-[4vw] lg:gap-y-0 lg:px-[11.1%]">
+      <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/[0.06]" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 rounded-full bg-[#c86b9b]/[0.12]" />
+
+      <div className="relative mx-auto grid max-w-[1400px] items-center gap-y-6 px-4 sm:px-8 lg:grid-cols-2 lg:gap-x-[4vw] lg:gap-y-0 lg:px-[11.1%]">
         {/* ---------- doctor image ---------- */}
         <div className="relative order-3 mx-auto mt-4 h-[440px] w-full max-w-[440px] lg:order-none lg:mt-0 sm:h-[540px] lg:h-[34vw] lg:max-h-[640px] lg:min-h-[500px] lg:max-w-none">
           {/* arch backdrop */}
-          <div className="absolute inset-x-[8%] bottom-0 top-[8%] rounded-t-[999px] bg-gradient-to-b from-[#7fb591] via-[#5e9a71] to-[#3f7455]" />
-          <div className="absolute inset-x-[3%] bottom-0 top-[3%] rounded-t-[999px] border-2 border-[#c86b9b]/45" />
+          <div className="absolute inset-x-[8%] bottom-0 top-[8%] rounded-t-[999px] bg-gradient-to-b from-white/30 via-white/15 to-white/5" />
+          <div className="absolute inset-x-[3%] bottom-0 top-[3%] rounded-t-[999px] border-2 border-[#f3b6d3]/70" />
 
           <Image
             src={IMG.doctor}
@@ -101,10 +104,10 @@ export default function DoctorExpertise() {
           <div
             role="heading"
             aria-level={2}
-            className={`${head.className} order-2 mt-0 text-[26px] font-bold leading-[1.22] tracking-[-0.015em] text-[#1f2a24] sm:text-[34px] lg:order-none lg:mt-5 lg:text-[max(28px,2.3vw)]`}
+            className={`${head.className} order-2 mt-0 text-[26px] font-bold leading-[1.22] tracking-[-0.015em] text-white sm:text-[34px] lg:order-none lg:mt-5 lg:text-[max(28px,2.3vw)]`}
           >
             Treated{" "}
-            <span className="bg-gradient-to-r from-[#3f7455] to-[#7fb591] bg-clip-text text-transparent">10,000+ Patients!</span>
+            <span className="bg-gradient-to-r from-white to-[#f3b6d3] bg-clip-text text-transparent">10,000+ Patients!</span>
             <br className="hidden sm:block" /> Your Journey Could Be Next
           </div>
 

@@ -13,7 +13,7 @@ export const IMG = {
   pemphigus: `${BASE}/v1794405485/Pemphigus-1.jpg`,
   nailFungus: `${BASE}/v1794405483/Nail-Fungus-1.jpg`,
   fungal: `${BASE}/v1794405476/Fungal-Infections-1.jpg`,
-  lichenoid: `${BASE}/v1794405484/Oral-Lichenoid-Lesion-1.webp`,
+  lichenoid: `${BASE}/v1794469585/Lichenoid-Melanosis-12.webp`,
   urticaria: `${BASE}/v1794405498/Urticaria-1.jpg`,
   melasma: `${BASE}/v1794405482/Melasm-1.webp`,
   drugReactions: `${BASE}/v1794405474/Drug-Reactions-1.jpg`,
