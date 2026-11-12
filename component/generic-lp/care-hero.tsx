@@ -9,11 +9,11 @@ export default function CareHero() {
 
   const {
     props: { srcSet: desktop },
-  } = getImageProps({ ...common, src: "/banner-2.png", width: 1896, height: 829 });
+  } = getImageProps({ ...common, src: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794469591/banner-2.png", width: 1896, height: 829 });
 
   const {
     props: { srcSet: mobile, ...img },
-  } = getImageProps({ ...common, src: "/banner-mble.png", width: 941, height: 1672 });
+  } = getImageProps({ ...common, src: "https://res.cloudinary.com/h2vx5bue/image/upload/v1794469590/banner-mble.png", width: 941, height: 1672 });
 
   return (
     <section className="relative w-full overflow-hidden bg-[#f4f7fb]">
